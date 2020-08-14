@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1035.0
+margin_bottom = 616.0
+color = Color( 0.309804, 0.141176, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 451.699
+margin_top = 262.717
+margin_right = 579.699
+margin_bottom = 297.717
+text = "Untitled Birb Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
