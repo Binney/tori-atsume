@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menu.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,3 +27,14 @@ text = "Untitled Birb Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 312.0
+margin_right = 645.0
+margin_bottom = 361.0
+text = "To the garden..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
