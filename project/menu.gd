@@ -6,6 +6,6 @@ func _on_StartButton_pressed():
 
 
 func _on_GardenButton_pressed():
-	Garden.show()
+	Garden._in_garden()
 	self.hide()
 	#get_tree().change_scene("res://Garden.tscn")
