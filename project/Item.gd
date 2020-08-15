@@ -22,7 +22,9 @@ func _update_count(val):
 #	pass
 
 func _try_action_in_garden():
-	return Garden.fillBucket()
+	return Garden.fillBucket("res://itemart/seedbucket.png")
+	# !!! should be implemented in subclass
+
 		
 
 func _on_Texture_gui_input(event):
