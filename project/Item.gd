@@ -22,9 +22,12 @@ func _update_count(val):
 #	pass
 
 func _try_action_in_garden():
-	return Garden.fillBucket("res://itemart/seedbucket.png")
+	var managed = false
+	managed = Garden.fillBucket("res://itemart/seedbucket.png")
+	if not managed:
+		managed = Garden.fillTree()
 	# !!! should be implemented in subclass
-
+	return managed
 		
 
 func _on_Texture_gui_input(event):

@@ -54,7 +54,7 @@ func fillBucket(texture):
 	return managed_fill
 		#res://.import/emptybucket.png
 		
-func fillTree(texture):
+func fillTree():
 	var managed_fill = false
 	var tree = Garden.get_node("Background/Tree")
 	if tree.empty:
