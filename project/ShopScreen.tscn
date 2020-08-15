@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="ShopScreen" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 128.0
+margin_top = 139.0
+margin_right = 182.0
+margin_bottom = 177.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.419608, 0.321569, 0.886275, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_top = 72.0
+margin_right = -135.0
+margin_bottom = 148.0
+text = "The Shoppe"
+__meta__ = {
+"_edit_use_anchors_": false
+}
