@@ -1,12 +1,10 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export (PackedScene) var Robin
 
-const ROBIN = preload("res://Robin.tscn")
+
+const Burd = preload("Burd.gd")
+const Robin = preload("res://Robin.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
@@ -15,27 +13,18 @@ func _ready():
 
 func new_game():
 	$BurdTimer.start()
-
-	
-func _on_BurdTimer_timeout():
 	spawnRobin()
-	
-#	var burd = Burd.instance()
-#	add_child(burd)
-#	# Set the mob's direction perpendicular to the path direction.
-#	var direction = $BurdPath/SpawnBurdLocation.rotation + PI / 2
-#	# Set the mob's position to a random location.
-#	burd.position = $BurdPath/SpawnBurdLocation.position
-#	# Add some randomness to the direction.
-#	direction += rand_range(-PI / 4, PI / 4)
-#	burd.rotation = direction
-#	# Set the velocity (speed & direction).
-#	burd.linear_velocity = Vector2(rand_range(burd.min_speed, burd.max_speed), 0)
-#	burd.linear_velocity = burd.linear_velocity.rotated(direction)
+
+
+func _on_BurdTimer_timeout():
+#	spawnRobin()
+	for child in get_children():
+		if (child is Burd):
+			child.tick()
 
 func spawnRobin():
 	$BurdPath/SpawnBurdLocation.offset = randi()
-	var burd = ROBIN.instance()
+	var burd = Robin.instance()
 	add_child(burd)
 	var direction = $BurdPath/SpawnBurdLocation.rotation + PI / 2
 	# Set the mob's position to a random location.
@@ -43,3 +32,5 @@ func spawnRobin():
 	# Add some randomness to the direction.
 	direction += rand_range(-PI / 4, PI / 4)
 	burd.rotation = direction
+	burd.tweet()
+	
