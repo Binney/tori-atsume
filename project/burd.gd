@@ -7,7 +7,6 @@ extends Area2D
 
 export var min_speed = 150  # Minimum speed range.
 export var max_speed = 250  # Maximum speed range.
-export(SpriteFrames) var frames setget set_frames
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +20,3 @@ func _ready():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-
-func set_frames(new_frames):
-	frames = new_frames
-	$AnimatedSprite.frames = new_frames
