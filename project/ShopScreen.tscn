@@ -1,15 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://burdart/robin1.png" type="Texture" id=1]
 
 [node name="ShopScreen" type="CanvasLayer"]
-
-[node name="Button" type="Button" parent="."]
-margin_left = 128.0
-margin_top = 139.0
-margin_right = 182.0
-margin_bottom = 177.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 512.0
@@ -23,11 +16,143 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -360.0
-margin_top = 72.0
-margin_right = -135.0
-margin_bottom = 148.0
+margin_left = -296.0
+margin_top = 40.0
+margin_right = -96.0
+margin_bottom = 70.0
 text = "The Shoppe"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 110.0
+margin_right = 294.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2" type="Button" parent="."]
+margin_left = 216.0
+margin_top = 111.0
+margin_right = 428.0
+margin_bottom = 317.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item3" type="Button" parent="."]
+margin_left = 354.0
+margin_top = 110.0
+margin_right = 566.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item4" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 225.0
+margin_right = 294.0
+margin_bottom = 431.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item5" type="Button" parent="."]
+margin_left = 216.0
+margin_top = 225.0
+margin_right = 428.0
+margin_bottom = 431.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item6" type="Button" parent="."]
+margin_left = 353.0
+margin_top = 225.0
+margin_right = 565.0
+margin_bottom = 431.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item7" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 336.0
+margin_right = 294.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item8" type="Button" parent="."]
+margin_left = 216.0
+margin_top = 336.0
+margin_right = 428.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item9" type="Button" parent="."]
+margin_left = 353.0
+margin_top = 336.0
+margin_right = 565.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item10" type="Button" parent="."]
+margin_left = 82.0
+margin_top = 449.0
+margin_right = 294.0
+margin_bottom = 655.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item11" type="Button" parent="."]
+margin_left = 216.0
+margin_top = 449.0
+margin_right = 428.0
+margin_bottom = 655.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item12" type="Button" parent="."]
+margin_left = 353.0
+margin_top = 449.0
+margin_right = 565.0
+margin_bottom = 655.0
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
