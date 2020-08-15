@@ -4,11 +4,16 @@ extends MarginContainer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+
 onready var money = null
 const START_MONEY = 10 
 
-const generic_item = preload("Item.gd")
+
 const Item = preload("res://Item.tscn")
+const SeedBucket = preload("res://SeedBucket.tscn")
+var item_name_to_item = {"GenericItem": Item,
+						 "SeedBucket": SeedBucket}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +50,7 @@ func _add_to_inventory(item_name):
 			i._update_count(1)
 			break
 	if not found:
-		Inventory.get_node("HBoxContainer/Items/ItemBox").add_child(Item.instance())
+		Inventory.get_node("HBoxContainer/Items/ItemBox").add_child(item_name_to_item[item_name].instance())
 		
 func _remove_from_inventory(item_name):		
 	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()

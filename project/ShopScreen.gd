@@ -19,5 +19,5 @@ func _ready():
 
 func _on_Buy_button_up():
 	#BUY ITEMS
+	InventoryManagement._add_to_inventory("SeedBucket")
 	InventoryManagement._add_to_inventory("GenericItem")
-

@@ -61,3 +61,12 @@ func fillTree():
 		managed_fill = true
 		tree._fill()
 	return managed_fill
+	
+	
+func fillNestBox():
+	var managed_fill = false
+	var nestbox = Garden.get_node("Background/NestBox")
+	if nestbox.empty:
+		managed_fill = true
+		nestbox._fill()
+	return managed_fill
