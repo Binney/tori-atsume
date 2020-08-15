@@ -44,5 +44,8 @@ margin_top = 437.0
 margin_right = 643.0
 margin_bottom = 489.0
 text = "To the garden..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="GardenButton" to="." method="_on_GardenButton_pressed"]
