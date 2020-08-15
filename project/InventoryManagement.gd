@@ -34,8 +34,8 @@ func _update_Money(val):
 		money += val
 		$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)
 
-func _increment_item(item_name):
-	print(Inventory.get_node("HBoxContainer/Items/ItemBox"))
+	
+func _add_to_inventory(item_name):
 	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
 	var found = false
 	for i in items:
@@ -45,9 +45,16 @@ func _increment_item(item_name):
 			break
 	if not found:
 		Inventory.get_node("HBoxContainer/Items/ItemBox").add_child(Item.instance())
-	
-func _add_to_inventory(item_name):
-	_increment_item(item_name)
+		
+func _remove_from_inventory(item_name):		
+	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
+	for i in items:
+		if i.item_name == item_name:
+			if i.count > 1:
+				i._update_count(-1)
+			else:
+				Inventory.get_node("HBoxContainer/Items/ItemBox").remove_child(i)
+			break
 		
 func _on_ShopButton_button_up():
 	#money += 50 

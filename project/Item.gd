@@ -20,3 +20,8 @@ func _update_count(val):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Texture_gui_input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		InventoryManagement._remove_from_inventory(item_name)		 # Replace with function body.

@@ -21,3 +21,4 @@ custom_colors/font_color = Color( 0.976471, 0.976471, 0.976471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="gui_input" from="Texture" to="." method="_on_Texture_gui_input"]
