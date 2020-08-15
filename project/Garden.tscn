@@ -36,30 +36,30 @@ rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Bucket1" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 19.7611
-margin_top = 32.3745
-margin_right = 59.7611
-margin_bottom = 72.3745
+margin_left = 14.8113
+margin_top = 28.8389
+margin_right = 54.8113
+margin_bottom = 68.8389
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bucket2" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 57.6014
-margin_top = 32.3745
-margin_right = 97.6014
-margin_bottom = 72.3745
+margin_left = 64.3189
+margin_top = 28.4854
+margin_right = 104.319
+margin_bottom = 68.4854
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bucket3" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 102.589
-margin_top = 31.9541
-margin_right = 142.589
-margin_bottom = 71.9541
+margin_left = 106.832
+margin_top = 29.1257
+margin_right = 146.832
+margin_bottom = 69.1257
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

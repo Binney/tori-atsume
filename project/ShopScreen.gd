@@ -19,4 +19,5 @@ func _ready():
 
 func _on_Buy_button_up():
 	#BUY ITEMS
-	pass # Replace with function body.
+	InventoryManagement._add_to_inventory("GenericItem")
+
