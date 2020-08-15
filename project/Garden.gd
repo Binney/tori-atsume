@@ -3,7 +3,7 @@ extends Node2D
 
 
 
-const Burd = preload("Burd.gd")
+const Burd = preload("burd.gd")
 const Robin = preload("res://Robin.tscn")
 
 # Called when the node enters the scene tree for the first time.
