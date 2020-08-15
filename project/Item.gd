@@ -8,7 +8,7 @@ export var item_texture = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get.node("ItemSprite").texture = load(item_texture)
+	$ItemSprite.texture = load(item_texture)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
