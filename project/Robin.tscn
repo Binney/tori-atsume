@@ -5,5 +5,9 @@
 
 [node name="Burd" instance=ExtResource( 1 )]
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="BurdPathFollow" parent="BurdPath" index="0"]
+rotation = 0.0407136
+
+[node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
+position = Vector2( 0, -0.28479 )
 frames = ExtResource( 2 )
