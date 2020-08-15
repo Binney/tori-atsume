@@ -32,7 +32,8 @@ func _update_Money(val):
 	# val is positive or negative int to update money with
 	if money:
 		money += val
-		$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)
+		var money_counter =  Inventory.get_node("HBoxContainer/Items/Money/MoneyBox/Labels/Counter")
+		money_counter.text = str(money)
 
 	
 func _add_to_inventory(item_name):
@@ -59,13 +60,13 @@ func _remove_from_inventory(item_name):
 func _on_ShopButton_button_up():
 	#money += 50 
 	ShopScreen.show()
-	Garden.hide()
+	Garden._left_garden()
 	#_add_to_inventory("GenericItem")
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
 
 func _on_GardenButton_button_up():
-	Garden.show()
+	Garden._in_garden()
 	ShopScreen.hide()
 	#get_tree().change_scene("res://Garden.tscn")
 

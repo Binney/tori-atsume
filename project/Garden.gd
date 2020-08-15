@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-
+var in_garden = false
 const Burd = preload("burd.gd")
 const Robin = preload("res://Robin.tscn")
 
@@ -11,6 +11,14 @@ func _ready():
 	randomize()
 	hide()
 	new_game()
+
+func _in_garden():
+	in_garden = true
+	Garden.show()
+	
+func _left_garden():
+	in_garden = false
+	Garden.hide() 
 
 func new_game():
 	$BurdTimer.start()
@@ -35,3 +43,13 @@ func spawnRobin():
 	burd.rotation = direction
 	burd.tweet()
 	
+func fillBucket():
+	var managed_fill = false
+	var buckets = Garden.get_node("Background/BirdTable").get_children()
+	for b in buckets:
+		if b.empty:
+			managed_fill = true
+			b._fill("res://itemart/seedbucket.png")
+			break
+	return managed_fill
+		#res://.import/emptybucket.png

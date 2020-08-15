@@ -21,7 +21,13 @@ func _update_count(val):
 #func _process(delta):
 #	pass
 
+func _try_action_in_garden():
+	return Garden.fillBucket()
+		
 
 func _on_Texture_gui_input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		InventoryManagement._remove_from_inventory(item_name)		 # Replace with function body.
+	if Garden.in_garden and event is InputEventMouseButton and event.is_pressed():
+		var used_item = _try_action_in_garden()
+		if used_item:
+			InventoryManagement._remove_from_inventory(item_name)		 # Replace with function body.
+
