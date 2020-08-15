@@ -1,8 +1,6 @@
 extends Node2D
 
 
-
-
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
 
@@ -22,6 +20,7 @@ func _on_BurdTimer_timeout():
 		if (child is Burd):
 			child.tick()
 
+
 func spawnRobin():
 	$BurdPath/SpawnBurdLocation.offset = randi()
 	var burd = Robin.instance()
@@ -33,4 +32,13 @@ func spawnRobin():
 	direction += rand_range(-PI / 4, PI / 4)
 	burd.rotation = direction
 	burd.tweet()
+	burd.arrive()
+	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
+	$BurdLandPath/BurdLandPoint.offset = randi()
+	var start = $SpawnBurdPath/SpawnBurdPoint.position
+	var end = $BurdLandPath/BurdLandPoint.position
+	var curve = Curve.new()
+	curve.add_point(start)
+	curve.add_point(end)
+	burd.flightpath.set_curve(curve)
 	
