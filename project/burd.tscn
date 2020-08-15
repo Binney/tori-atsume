@@ -32,6 +32,7 @@ curve = SubResource( 2 )
 [node name="BurdPathFollow" type="PathFollow2D" parent="BurdPath"]
 position = Vector2( 0.00601196, -0.0200348 )
 rotation = 0.0407136
+rotate = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BurdPath/BurdPathFollow"]
 scale = Vector2( 3, 3 )

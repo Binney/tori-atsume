@@ -40,7 +40,6 @@ func spawnRobin():
 	burd.position.x = 500
 	burd.position.y = 100
 	burd.tweet()
-	burd.arrive()
 	$SpawnBurdPath/SpawnBurdPoint.offset = 0#randi()
 	$BurdLandPath/BurdLandPoint.offset = 0#randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
