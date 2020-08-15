@@ -32,7 +32,6 @@ func tick():
 		tick_hanging_out()
 
 func tick_arrive():
-
 	if ($BurdPath/BurdPathFollow.offset + flight_speed > $BurdPath.curve.get_baked_length()):
 		arrive()
 		return
@@ -51,6 +50,19 @@ func tick_hanging_out():
 		depart()
 
 func tick_depart():
+	if $BurdPath/BurdPathFollow.offset - flight_speed < 0:
+		print("got to end")
+		queue_free()
+		return
+
+	var old_x = $BurdPath/BurdPathFollow.position.x
+	$BurdPath/BurdPathFollow.offset -= flight_speed
+	var new_x = $BurdPath/BurdPathFollow.position.x
+
+	if (old_x > new_x):
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-3, 0)
+	else:
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(3, 0)
 	print("L E A V I N G")
 
 func _on_VisibilityNotifier2D_viewport_entered(viewport):
@@ -59,10 +71,12 @@ func _on_VisibilityNotifier2D_viewport_entered(viewport):
 func arrive():
 	print("Arrived!")
 	arriving = false
+	$BurdPath/BurdPathFollow/AnimatedSprite.play("perch")
 
 func depart():
 	print("Departing")
 	departing = true
+	$BurdPath/BurdPathFollow/AnimatedSprite.play("flap")
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
