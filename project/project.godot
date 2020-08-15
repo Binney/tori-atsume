@@ -19,6 +19,11 @@ config/name="Tori Atsume"
 run/main_scene="res://Splash.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Inventory="*res://Inventory.tscn"
+InventoryManagement="*res://InventoryManagement.gd"
+
 [display]
 
 window/stretch/mode="2d"
