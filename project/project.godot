@@ -23,6 +23,8 @@ config/icon="res://icon.png"
 
 Inventory="*res://Inventory.tscn"
 InventoryManagement="*res://InventoryManagement.gd"
+Garden="*res://Garden.tscn"
+ShopScreen="*res://ShopScreen.tscn"
 
 [display]
 

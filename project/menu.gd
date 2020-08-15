@@ -1,7 +1,11 @@
 extends Control
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://ShopScreen.tscn")
-	
+	ShopScreen.show()
+	self.hide()
+
+
 func _on_GardenButton_pressed():
-	get_tree().change_scene("res://Garden.tscn")
+	Garden.show()
+	self.hide()
+	#get_tree().change_scene("res://Garden.tscn")
