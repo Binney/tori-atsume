@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://garden.PNG" type="Texture" id=1]
+[ext_resource path="res://Garden.gd" type="Script" id=2]
+[ext_resource path="res://burd.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 448.974, 217.004, 0, 0, 0, 0, 623.838, 237.027, 0, 0, 0, 0, 630.512, 354.493, 0, 0, 0, 0, 438.295, 351.823, 0, 0, 0, 0, 448.974, 217.004 )
+}
+
+[node name="Garden" type="Node2D"]
+script = ExtResource( 2 )
+Burd = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 49.7284
+margin_top = 26.6211
+margin_right = 960.728
+margin_bottom = 575.621
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BurdTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="BurdPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="SpawnBurdLocation" type="PathFollow2D" parent="BurdPath"]
+position = Vector2( 448.974, 217.004 )
+rotation = 0.11402
+[connection signal="timeout" from="BurdTimer" to="." method="_on_BurdTimer_timeout"]

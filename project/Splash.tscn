@@ -30,11 +30,19 @@ __meta__ = {
 
 [node name="StartButton" type="Button" parent="."]
 margin_left = 384.0
-margin_top = 312.0
+margin_top = 360.0
 margin_right = 645.0
-margin_bottom = 361.0
-text = "To the garden..."
+margin_bottom = 409.0
+text = "To the shop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GardenButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 437.0
+margin_right = 643.0
+margin_bottom = 489.0
+text = "To the garden..."
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="GardenButton" to="." method="_on_GardenButton_pressed"]
