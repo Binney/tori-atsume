@@ -21,8 +21,8 @@ func tweet():
 
 func tick():
 	age += 1
-	flightpath.offset += 5
-	position = flightpath.position
+#	flightpath.offset += 5
+#	position = flightpath.position
 	if age > lifetime:
 		depart()
 

@@ -7,6 +7,7 @@ const Robin = preload("res://Robin.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():    
 	randomize()
+	hide()
 	new_game()
 
 func new_game():
@@ -40,5 +41,5 @@ func spawnRobin():
 	var curve = Curve.new()
 	curve.add_point(start)
 	curve.add_point(end)
-	burd.flightpath.set_curve(curve)
+#	burd.flightpath.set_curve(curve)
 	

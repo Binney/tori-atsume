@@ -33,12 +33,15 @@ func _update_Money(val):
 
 func _on_ShopButton_button_up():
 	#money += 50 
-	get_tree().change_scene("res://ShopScreen.tscn")
+	ShopScreen.show()
+	Garden.hide()
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
 
 func _on_GardenButton_button_up():
-	get_tree().change_scene("res://Garden.tscn")
+	Garden.show()
+	ShopScreen.hide()
+	#get_tree().change_scene("res://Garden.tscn")
 
 
 
