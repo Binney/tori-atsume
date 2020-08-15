@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://itemart/loafcat.PNG" type="Texture" id=1]
 [ext_resource path="res://InventoryManagement.gd" type="Script" id=2]
 [ext_resource path="res://sprites/coins1.png" type="Texture" id=3]
 
@@ -38,23 +37,23 @@ text = "Enter garden"
 
 [node name="Items" type="HBoxContainer" parent="HBoxContainer"]
 margin_left = 96.0
-margin_right = 192.0
+margin_right = 152.0
 margin_bottom = 44.0
 
 [node name="Money" type="MarginContainer" parent="HBoxContainer/Items"]
 margin_right = 52.0
 margin_bottom = 44.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Items/Money"]
+[node name="MoneyBox" type="HBoxContainer" parent="HBoxContainer/Items/Money"]
 margin_right = 52.0
 margin_bottom = 44.0
 size_flags_horizontal = 0
 
-[node name="Labels" type="VBoxContainer" parent="HBoxContainer/Items/Money/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer/Items/Money/MoneyBox"]
 margin_right = 18.0
 margin_bottom = 44.0
 
-[node name="Title" type="Label" parent="HBoxContainer/Items/Money/HBoxContainer/Labels"]
+[node name="Title" type="Label" parent="HBoxContainer/Items/Money/MoneyBox/Labels"]
 margin_right = 18.0
 margin_bottom = 14.0
 size_flags_horizontal = 0
@@ -62,7 +61,7 @@ size_flags_vertical = 0
 custom_colors/font_color = Color( 0.964706, 0.929412, 0.929412, 1 )
 text = "GP"
 
-[node name="Counter" type="Label" parent="HBoxContainer/Items/Money/HBoxContainer/Labels"]
+[node name="Counter" type="Label" parent="HBoxContainer/Items/Money/MoneyBox/Labels"]
 margin_top = 18.0
 margin_right = 8.0
 margin_bottom = 32.0
@@ -72,7 +71,7 @@ custom_colors/font_color = Color( 0.964706, 0.929412, 0.929412, 1 )
 text = "0"
 valign = 2
 
-[node name="Background" type="NinePatchRect" parent="HBoxContainer/Items/Money/HBoxContainer"]
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Items/Money/MoneyBox"]
 margin_left = 22.0
 margin_right = 52.0
 margin_bottom = 44.0
@@ -80,27 +79,12 @@ rect_min_size = Vector2( 30, 0 )
 size_flags_horizontal = 0
 texture = ExtResource( 3 )
 
-[node name="dummyitem" type="MarginContainer" parent="HBoxContainer/Items"]
+[node name="ItemBox" type="HBoxContainer" parent="HBoxContainer/Items"]
 margin_left = 56.0
-margin_right = 96.0
+margin_right = 56.0
 margin_bottom = 44.0
-
-[node name="Background" type="NinePatchRect" parent="HBoxContainer/Items/dummyitem"]
-margin_right = 40.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 1 )
-
-[node name="Title" type="TextureRect" parent="HBoxContainer/Items/dummyitem"]
-margin_right = 40.0
-margin_bottom = 44.0
-
-[node name="Number" type="Label" parent="HBoxContainer/Items/dummyitem"]
-margin_top = 15.0
-margin_right = 40.0
-margin_bottom = 29.0
 [connection signal="button_up" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_button_up"]
 [connection signal="pressed" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_pressed"]
 [connection signal="button_up" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_button_up"]
 [connection signal="pressed" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_pressed"]
-[connection signal="draw" from="HBoxContainer/Items/Money/HBoxContainer/Labels/Counter" to="." method="_on_Counter_draw"]
+[connection signal="draw" from="HBoxContainer/Items/Money/MoneyBox/Labels/Counter" to="." method="_on_Counter_draw"]

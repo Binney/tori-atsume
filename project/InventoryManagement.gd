@@ -6,6 +6,10 @@ extends MarginContainer
 # var b = "text"
 onready var money = null
 const START_MONEY = 10 
+
+const generic_item = preload("Item.gd")
+const Item = preload("res://Item.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	money = START_MONEY
@@ -28,17 +32,43 @@ func _update_Money(val):
 	# val is positive or negative int to update money with
 	if money:
 		money += val
-		$HBoxContainer/Items/Money/HBoxContainer/Labels/Counter.text = str(money)
-	
+		var money_counter =  Inventory.get_node("HBoxContainer/Items/Money/MoneyBox/Labels/Counter")
+		money_counter.text = str(money)
 
+	
+func _add_to_inventory(item_name):
+	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
+	var found = false
+	for i in items:
+		if i.item_name == item_name:
+			found = true
+			i._update_count(1)
+			break
+	if not found:
+		Inventory.get_node("HBoxContainer/Items/ItemBox").add_child(Item.instance())
+		
+func _remove_from_inventory(item_name):		
+	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
+	for i in items:
+		if i.item_name == item_name:
+			if i.count > 1:
+				i._update_count(-1)
+			else:
+				Inventory.get_node("HBoxContainer/Items/ItemBox").remove_child(i)
+			break
+		
 func _on_ShopButton_button_up():
 	#money += 50 
-	get_tree().change_scene("res://ShopScreen.tscn")
+	ShopScreen.show()
+	Garden._left_garden()
+	#_add_to_inventory("GenericItem")
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
 
 func _on_GardenButton_button_up():
-	get_tree().change_scene("res://Garden.tscn")
+	Garden._in_garden()
+	ShopScreen.hide()
+	#get_tree().change_scene("res://Garden.tscn")
 
 
 
@@ -49,4 +79,4 @@ func _on_Counter_ready():
 
 
 func _on_Counter_draw():
-	$HBoxContainer/Items/Money/HBoxContainer/Labels/Counter.text = str(money)
+	$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)

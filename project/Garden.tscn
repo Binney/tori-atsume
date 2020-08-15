@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://itemart/emptybucket.png" type="Texture" id=1]
 [ext_resource path="res://Garden.gd" type="Script" id=2]
 [ext_resource path="res://itemart/birdfeeder.png" type="Texture" id=3]
 [ext_resource path="res://itemart/garden.png" type="Texture" id=4]
+[ext_resource path="res://Bucket1.gd" type="Script" id=5]
+[ext_resource path="res://Tree.gd" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -34,33 +36,49 @@ margin_right = 483.233
 margin_bottom = 445.946
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Bucket1" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 19.7611
-margin_top = 32.3745
-margin_right = 59.7611
-margin_bottom = 72.3745
+margin_left = 14.8113
+margin_top = 28.8389
+margin_right = 54.8113
+margin_bottom = 68.8389
 texture = ExtResource( 1 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bucket2" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 57.6014
-margin_top = 32.3745
-margin_right = 97.6014
-margin_bottom = 72.3745
+margin_left = 55.4701
+margin_top = 28.4854
+margin_right = 95.4701
+margin_bottom = 68.4854
 texture = ExtResource( 1 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bucket3" type="TextureRect" parent="Background/BirdTable"]
-margin_left = 102.589
-margin_top = 31.9541
-margin_right = 142.589
-margin_bottom = 71.9541
+margin_left = 99.3108
+margin_top = 26.7176
+margin_right = 139.311
+margin_bottom = 66.7176
 texture = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tree" type="TextureRect" parent="Background"]
+margin_left = 798.0
+margin_top = 71.0
+margin_right = 994.0
+margin_bottom = 574.0
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
