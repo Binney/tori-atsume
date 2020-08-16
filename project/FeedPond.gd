@@ -13,3 +13,4 @@ func tick():
 func fill(item_name):
 	$Sprite.visible = true
 	fullness = 1
+	contents = item_name
