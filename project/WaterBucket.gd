@@ -1,4 +1,4 @@
-extends "FillableItem.gd"
+extends "Item.gd"
 
 func _init():
 	item_name = 'WaterBucket'

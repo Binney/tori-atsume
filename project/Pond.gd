@@ -1,4 +1,4 @@
-extends "ReusableItem.gd"
+extends "Item.gd"
 
 
 # Declare member variables here. Examples:
