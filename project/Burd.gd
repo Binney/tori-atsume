@@ -64,6 +64,8 @@ func tick_hanging_out():
 		# No food left, hang around for a bit then leave
 		siesta -= 1
 	if age > lifetime || siesta <= 0:
+		if age >= lifetime:
+			extra_bird_money()
 		depart()
 
 func tick_depart():
@@ -96,7 +98,24 @@ func depart():
 	if destination.has_method('free_feeder'):
 		destination.free_feeder()
 	departing = true
+	base_bird_money()
 	$BurdPath/BurdPathFollow/AnimatedSprite.play("flap")
+	
+func base_bird_money():
+	# Pick a random integer between 0 and 1
+	# This will be the number of coins the user
+	# gets from any one bird
+	var base_money
+	base_money = randi()%2 
+	InventoryManagement._update_Money(base_money)
+
+func extra_bird_money():
+	# Pick a random integer between 1 and 3
+	# This will be the number of coins the user
+	# gets if a bird has their fill
+	var extra_money
+	extra_money = randi()%3 + 1 
+	InventoryManagement._update_Money(extra_money)
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
