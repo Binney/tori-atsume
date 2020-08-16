@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://shopart/shop.png" type="Texture" id=1]
 [ext_resource path="res://pangolin.tres" type="DynamicFont" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://itemart/waterbucket_full1.png" type="Texture" id=9]
 [ext_resource path="res://itemart/icebucket_full.png" type="Texture" id=10]
 [ext_resource path="res://itemart/fruittree.png" type="Texture" id=11]
+[ext_resource path="res://theme/GUITheme.tres" type="Theme" id=12]
 
 [node name="ShopScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -194,6 +195,7 @@ margin_left = 168.0
 margin_top = 552.0
 margin_right = 344.0
 margin_bottom = 592.0
+theme = ExtResource( 12 )
 text = "Buy"
 __meta__ = {
 "_edit_use_anchors_": false
