@@ -29,3 +29,7 @@ func _on_Item3_button_up():
 func _on_Item4_button_up():
 	print("Selecting GooBucket")
 	current_item = "GooBucket"
+	
+func _on_Item5_button_up():
+	print("Selecting NestBox")
+	current_item = "NestBox"

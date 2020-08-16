@@ -11,6 +11,7 @@ const Cassowary = preload("res://Cassowary.tscn")
 const LEFT_WALKING_SPAWN_POINT = Vector2(-200, 450)
 const RIGHT_WALKING_SPAWN_POINT = Vector2(1650, 450)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():    
 	randomize()
@@ -77,7 +78,7 @@ func fillBucket(food_name):
 	var managed_fill = false
 	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if b.fullness == 0:
+		if food_name in b.fillable and b.fullness == 0:
 			managed_fill = true
 			b.fill(food_name)
 			break
@@ -93,13 +94,6 @@ func fillTree():
 	return managed_fill
 	
 	
-func fillNestBox():
-	var managed_fill = false
-	var nestbox = Garden.get_node("Background/NestBox")
-	if nestbox.empty:
-		managed_fill = true
-		nestbox._fill()
-	return managed_fill
 
 # ======================
 # BIRD SPAWNING HATCHERY
