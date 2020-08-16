@@ -24,7 +24,7 @@ func _ready():
 	pass
 
 func tweet():
-	# TODO actually make a noise
+	$AudioStreamPlayer.play()
 	print("TWIET")
 
 func set_flightpath(path):
