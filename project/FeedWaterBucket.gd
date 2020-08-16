@@ -17,6 +17,7 @@ func tick():
 			$Sprite.texture = load(item_to_textures[contents][1])
 		if fullness <= 0:
 			print("Empty")
+			floatable = false
 			$Sprite.texture = load("res://itemart/emptyfloorbucket.png") 
 			free_feeder()
 
@@ -24,5 +25,9 @@ func tick():
 func fill(item_name):
 	print("Filled")
 	contents = item_name
+	if contents == "waterbucket":
+		floatable = true
+	else:
+		floatable = false
 	$Sprite.texture = load(item_to_textures[contents][0])
 	fullness = MAX_CAPACITY
