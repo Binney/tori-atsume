@@ -52,9 +52,9 @@ func spawn_flying_bird(species, target_birdfeeder):
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
 	var end
 	if start.x > target_birdfeeder.position.x:
-		end = target_birdfeeder.position + target_birdfeeder.get_child(2).position
-	else:
 		end = target_birdfeeder.position + target_birdfeeder.get_child(4).position
+	else:
+		end = target_birdfeeder.position + target_birdfeeder.get_child(2).position
 	var curve = Curve2D.new()
 	curve.add_point(start)
 	curve.add_point(end)
