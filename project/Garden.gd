@@ -116,7 +116,8 @@ func spawn_birds():
 	var robin = Robin.instance()
 	if (randi() % robin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
-			if child.fullness > 0 && !child.locked:
+			print(child.contents)
+			if child.fullness > 0 && !child.locked && child.contents == 'seedbucket':
 				spawn_flying_bird(Robin, child)
 				return # Don't spawn multiple birds in one tick
 
@@ -131,7 +132,7 @@ func spawn_birds():
 	var cassowary = Cassowary.instance()
 	if (randi() % cassowary.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
-			if child.fullness > 0 && !child.locked:
+			if child.fullness > 0 && !child.locked && child.contents == 'fruitbucket':
 				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
 
