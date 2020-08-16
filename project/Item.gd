@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -10,8 +10,8 @@ var count = 1
 func _ready():
 	_init()
 	$Texture.texture = load(item_texture)
-	$Texture.rect_size.x = 30
-	$Texture.rect_size.y = 44
+	$Texture.rect_size.x = InventoryManagement.ITEM_WIDTH
+	$Texture.rect_size.y = InventoryManagement.ITEM_HEIGHT
 	$ItemCount.text = "1"
 	
 func _init():
