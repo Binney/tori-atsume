@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://achievements/Achievement.tscn" type="PackedScene" id=1]
+
+[node name="Control" instance=ExtResource( 1 )]
+margin_left = -0.299789
+margin_top = 0.299789
+margin_right = -824.3
+margin_bottom = -299.7
+
+[node name="TextureRect" parent="." index="0"]
+margin_left = 53.2211
+margin_top = 0.153626
+margin_right = 86.2211
+margin_bottom = 33.1536
+
+[node name="TextureRect2" parent="." index="1"]
+margin_left = 65.2469
+margin_right = 125.247
+
+[node name="Label" parent="." index="2"]
+margin_left = -20.2544
+margin_top = 100.747
+margin_right = 230.746
+margin_bottom = 134.747
+text = "Pigeon"
+
+[node name="Label2" parent="." index="3"]
+margin_left = 4.61496
+margin_top = 141.501
+margin_right = 195.615
+margin_bottom = 234.501
+text = "The love-bird of the urban jungle, this sexy beast likes to eat whatever it can get its filthy beak into."

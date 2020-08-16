@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://itemart/frame.png" type="Texture" id=1]
+[ext_resource path="res://burdart/penguin_stand1.png" type="Texture" id=2]
+[ext_resource path="res://theme/GUITheme.tres" type="Theme" id=3]
+[ext_resource path="res://fonts/SinsGold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.270554
+margin_right = -824.0
+margin_bottom = -300.271
+rect_min_size = Vector2( 200, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 45.5062
+margin_top = -0.628806
+margin_right = 78.5062
+margin_bottom = 32.3712
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 57.532
+margin_top = 10.9379
+margin_right = 117.532
+margin_bottom = 90.9379
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -28.5104
+margin_top = 103.613
+margin_right = 222.49
+margin_bottom = 137.613
+theme = ExtResource( 3 )
+text = "Achievement name"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 2.00305
+margin_top = 141.106
+margin_right = 193.003
+margin_bottom = 234.106
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Achievement description lorem ipsum dolor si amet"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

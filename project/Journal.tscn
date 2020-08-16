@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://theme/GUITheme.tres" type="Theme" id=1]
+[ext_resource path="res://Journal.gd" type="Script" id=2]
+[ext_resource path="res://achievements/Pigeon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://achievements/Penguin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://achievements/Robin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://achievements/Duck.tscn" type="PackedScene" id=6]
+[ext_resource path="res://achievements/Cassowary.tscn" type="PackedScene" id=7]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -32.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.772549, 0.635294, 0.886275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 356.354
+margin_top = 61.2599
+margin_right = 664.354
+margin_bottom = 95.2599
+text = "Birdwatching Journal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 120.0
+margin_top = 126.0
+margin_right = 915.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+margin_right = 788.0
+margin_bottom = 404.0
+columns = 3
+
+[node name="Robin" parent="ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 260.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 260, 200 )
+
+[node name="Pigeon" parent="ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 0.0
+margin_right = 524.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 260, 200 )
+size_flags_horizontal = 3
+
+[node name="Penguin" parent="ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 528.0
+margin_top = 0.0
+margin_right = 788.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 260, 200 )
+size_flags_horizontal = 3
+
+[node name="Cassowary" parent="ScrollContainer/GridContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 204.0
+margin_right = 260.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 260, 200 )
+
+[node name="Duck" parent="ScrollContainer/GridContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 204.0
+margin_right = 524.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 260, 200 )
+
+[node name="CloseButton" type="Button" parent="."]
+margin_left = 922.592
+margin_top = 23.7375
+margin_right = 980.592
+margin_bottom = 82.7375
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmptyLabel" type="Label" parent="."]
+visible = false
+margin_left = 114.368
+margin_top = 144.936
+margin_right = 439.368
+margin_bottom = 178.936
+text = "No journal entries yet."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CloseButton" to="." method="_on_Button_pressed"]

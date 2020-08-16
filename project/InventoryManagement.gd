@@ -85,6 +85,7 @@ func _on_ShopButton_button_up():
 	#money += 50 
 	ShopScreen.show()
 	Garden._left_garden()
+	Journal.hide()
 	$HBoxContainer/Buttons/GardenButton.show()
 	$HBoxContainer/Buttons/ShopButton.hide()
 	#_add_to_inventory("GenericItem")
@@ -95,6 +96,7 @@ func _on_GardenButton_button_up():
 	$HBoxContainer/Buttons/GardenButton.hide()
 	$HBoxContainer/Buttons/ShopButton.show()
 	Garden._in_garden()
+	Journal.hide()
 	ShopScreen.hide()
 	#get_tree().change_scene("res://Garden.tscn")
 
@@ -108,3 +110,9 @@ func _on_Counter_ready():
 
 func _on_Counter_draw():
 	$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)
+
+
+func _on_Button_pressed():
+	Garden._left_garden()
+	Journal.display()
+	ShopScreen.hide()

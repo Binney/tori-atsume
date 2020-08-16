@@ -51,7 +51,6 @@ func _on_BurdTimer_timeout():
 	spawn_birds()
 
 func spawn_flying_bird(species, target_birdfeeder):
-	print("Spawning " + species.to_string())
 	var burd = species.instance()
 	burd.position.x = 0
 	burd.position.y = 0
@@ -126,6 +125,7 @@ func spawn_birds():
 		for child in $BirdfeedersLayer.get_children():
 			print(child.contents)
 			if child.fullness > 0 && !child.locked && child.contents == 'seedbucket':
+				Journal.discover("Robin")
 				spawn_flying_bird(Robin, child)
 				return # Don't spawn multiple birds in one tick
 
@@ -134,6 +134,7 @@ func spawn_birds():
 	if (randi() % pigeon.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
+				Journal.discover("Pigeon")
 				spawn_flying_bird(Pigeon, child)
 				return # Don't spawn multiple birds in one tick
 
@@ -141,6 +142,7 @@ func spawn_birds():
 	if (randi() % duck.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked &&  child.contents in ["pond", "waterbucket", "seedbucket"]:
+				Journal.discover("Duck")
 				spawn_flying_bird(Duck, child)
 				return # Don't spawn multiple birds in one tick
 
@@ -149,6 +151,7 @@ func spawn_birds():
 	if (randi() % cassowary.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['fruitbucket', 'fruittree']:
+				Journal.discover("Cassowary")
 				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
 
@@ -156,6 +159,7 @@ func spawn_birds():
 	if (randi() % penguin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['icebucket', 'meatbucket']:
+				Journal.discover("Penguin")
 				spawn_walking_bird(Penguin, child)
 				return # Don't spawn multiple birds in one tick
 

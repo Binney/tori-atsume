@@ -17,7 +17,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 591.0
+margin_right = 888.0
 margin_bottom = 72.0
 size_flags_vertical = 0
 
@@ -92,8 +92,20 @@ margin_bottom = 72.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 2
 custom_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 580.0
+margin_right = 888.0
+margin_bottom = 72.0
+
+[node name="JournalButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_right = 308.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "Birdwatching Journal"
 [connection signal="button_up" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_button_up"]
 [connection signal="pressed" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_pressed"]
 [connection signal="button_up" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_button_up"]
 [connection signal="pressed" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_pressed"]
 [connection signal="draw" from="HBoxContainer/Items/Money/MoneyBox/Labels/Counter" to="." method="_on_Counter_draw"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/JournalButton" to="." method="_on_Button_pressed"]
