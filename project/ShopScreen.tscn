@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://shopart/shop.png" type="Texture" id=1]
 [ext_resource path="res://pangolin.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ShopScreen.gd" type="Script" id=3]
 [ext_resource path="res://itemart/seedbucket.png" type="Texture" id=4]
+[ext_resource path="res://itemart/meatbucket.png" type="Texture" id=5]
 
 [node name="ShopScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -50,6 +51,10 @@ margin_top = 118.0
 margin_right = 428.0
 margin_bottom = 324.0
 rect_scale = Vector2( 0.4, 0.4 )
+text = "Meat Bucket"
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -163,4 +168,6 @@ text = "Buy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="button_up" from="Item1" to="." method="_on_Item1_button_up"]
+[connection signal="button_up" from="Item2" to="." method="_on_Item2_button_up"]
 [connection signal="button_up" from="Buy" to="." method="_on_Buy_button_up"]
