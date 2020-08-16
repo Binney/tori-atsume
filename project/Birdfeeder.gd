@@ -25,6 +25,7 @@ func tick():
 		if fullness <= 0:
 			print("Empty")
 			being_consumed = false
+			locked = false
 
 func set_being_consumed(value):
 	being_consumed = value
