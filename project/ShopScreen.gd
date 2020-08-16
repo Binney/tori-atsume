@@ -1,7 +1,7 @@
 extends Node2D
 
 # Declare member variables here. Examples:
-var current_item = "SeedBucket"
+var current_item = ""
 var purchases = {}
 var limited_purchase = {"FruitTree": 1}
 # Called when the node enters the scene tree for the first time.
@@ -30,10 +30,10 @@ func do_purchase():
 
 func _on_Buy_button_up():
 	#BUY ITEMS
-	#InventoryManagement._add_to_inventory("SeedBucket")
-	#InventoryManagement._add_to_inventory("GenericItem")
-
-	_maybe_purchase_limited()
+	if len(current_item) == 0:
+		$NullBuyCheck.popup_centered()
+	else:
+		_maybe_purchase_limited()
 	
 func _on_Item1_button_up():
 	print("Selecting SeedBucket")
