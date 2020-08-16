@@ -11,6 +11,7 @@ var flight_speed = 15
 var age = 0
 var arriving = true
 var departing = false
+var destination
 
 func _ready():
 	pass
@@ -22,6 +23,11 @@ func tweet():
 func set_flightpath(path):
 	$BurdPath.set_curve(path)
 	print($BurdPath/BurdPathFollow.position)
+
+func set_destination(node):
+	print("Set destination to")
+	print(node)
+	destination = node
 
 func tick():
 	if arriving:
@@ -42,7 +48,8 @@ func tick_arrive():
 
 	if (old_x > new_x):
 		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-3, 0)
-		pass
+	else:
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(3, 0)
 
 func tick_hanging_out():
 	age += 1
@@ -63,7 +70,6 @@ func tick_depart():
 		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-3, 0)
 	else:
 		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(3, 0)
-	print("L E A V I N G")
 
 func _on_VisibilityNotifier2D_viewport_entered(viewport):
 	print("Spawned")
@@ -71,6 +77,8 @@ func _on_VisibilityNotifier2D_viewport_entered(viewport):
 func arrive():
 	print("Arrived!")
 	arriving = false
+	if destination.has_method('set_being_consumed'):
+		destination.set_being_consumed(true)
 	$BurdPath/BurdPathFollow/AnimatedSprite.play("perch")
 
 func depart():

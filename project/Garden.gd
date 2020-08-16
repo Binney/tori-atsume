@@ -2,6 +2,7 @@ extends Node2D
 
 
 var in_garden = false
+const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
 
@@ -29,27 +30,32 @@ func _on_BurdTimer_timeout():
 	for child in get_children():
 		if (child is Burd):
 			child.tick()
+	for child in $BirdfeedersLayer.get_children():
+		if (child is Birdfeeder):
+			child.tick()
 
 func spawn_robin():
 	var burd = Robin.instance()
 	add_child(burd)
 
-	burd.position.x = 500
-	burd.position.y = -20
+	burd.position.x = 0
+	burd.position.y = 0
 	burd.tweet()
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
-	$BurdLandPath/BurdLandPoint.offset = randi()
+#	$BurdLandPath/BurdLandPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
-	var end = $BurdLandPath/BurdLandPoint.position
+#	var end = $BurdLandPath/BurdLandPoint.position
+	var end = $BirdfeedersLayer/FeedBucket.position
 	var curve = Curve2D.new()
 	curve.add_point(start)
 	curve.add_point(end)
 	burd.set_flightpath(curve)
+	burd.set_destination($BirdfeedersLayer/FeedBucket)
 	print("Set curve")
 	print(start)
 	print(" to ")
 	print(end)
-	
+
 func fillBucket(texture):
 	var managed_fill = false
 	var buckets = Garden.get_node("Background/BirdTable").get_children()
