@@ -44,3 +44,8 @@ func _on_Item7_pressed():
 	print("Selecting IceBucket")
 	current_item = "IceBucket"
 
+
+
+func _on_Item8_pressed():
+	print("Selecting Tree")
+	current_item = "FruitTree"

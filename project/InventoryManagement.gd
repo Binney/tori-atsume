@@ -19,6 +19,8 @@ const MeatBucket = preload("res://MeatBucket.tscn")
 const NestBox = preload("res://NestBox.tscn")
 const WaterBucket = preload("res://WaterBucket.tscn")
 const IceBucket = preload("res://IceBucket.tscn")
+const FruitTree = preload("res://FruitTree.tscn")
+
 onready var item_name_to_item = {"GenericItem": Item,
 						 "SeedBucket": SeedBucket,
 						"FruitBucket": FruitBucket,
@@ -26,7 +28,8 @@ onready var item_name_to_item = {"GenericItem": Item,
 						"GooBucket": GooBucket,
 						"NestBox": NestBox,
 						"WaterBucket": WaterBucket,
-						"IceBucket": IceBucket}
+						"IceBucket": IceBucket,
+						"FruitTree": FruitTree}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

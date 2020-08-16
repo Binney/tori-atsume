@@ -29,10 +29,10 @@ func _update_count(val):
 
 func _try_action_in_garden():
 	var managed = false
-	# !!! this function should be implemented in subclasses! this is just used for testing atm.
-	managed = Garden.fillTree()
+	managed = Garden.fillGardenSpace(item_name.to_lower())
 	return managed
-		
+
+
 
 func _on_Texture_gui_input(event):
 	if Garden.in_garden and event is InputEventMouseButton and event.is_pressed():

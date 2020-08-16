@@ -5,7 +5,7 @@
 [ext_resource path="res://itemart/birdfeeder.png" type="Texture" id=3]
 [ext_resource path="res://itemart/garden.png" type="Texture" id=4]
 [ext_resource path="res://FeedWaterBucket.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tree.gd" type="Script" id=6]
+[ext_resource path="res://FeedTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://FeedBucket.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
@@ -39,16 +39,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tree" type="TextureRect" parent="Background"]
-margin_left = 798.0
-margin_top = 71.0
-margin_right = 994.0
-margin_bottom = 574.0
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="BurdTimer" type="Timer" parent="."]
 wait_time = 0.2
 
@@ -76,4 +66,7 @@ position = Vector2( 237, 432 )
 
 [node name="WaterBucket" parent="BirdfeedersLayer" instance=ExtResource( 5 )]
 position = Vector2( 896, 515 )
+
+[node name="Tree" parent="BirdfeedersLayer" instance=ExtResource( 6 )]
+position = Vector2( 914, 221 )
 [connection signal="timeout" from="BurdTimer" to="." method="_on_BurdTimer_timeout"]
