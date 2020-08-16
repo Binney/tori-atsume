@@ -83,7 +83,7 @@ func tick_depart():
 	else:
 		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(PIXEL_SCALE_FACTOR, 0)
 
-func _on_VisibilityNotifier2D_viewport_entered(viewport):
+func _on_VisibilityNotifier2D_viewport_entered(_viewport):
 	print("Spawned")
 
 func arrive():
@@ -120,5 +120,5 @@ func extra_bird_money():
 	extra_money = randi()%3 + 1 
 	InventoryManagement._update_Money(extra_money)
 
-func _on_VisibilityNotifier2D_viewport_exited(viewport):
+func _on_VisibilityNotifier2D_viewport_exited(_viewport):
 	queue_free()

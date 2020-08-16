@@ -31,7 +31,7 @@ func fade_out_music():
 	$AudioStreamPlayer/Tween.interpolate_property($AudioStreamPlayer, "volume_db", 0, -80, 3, 1, Tween.EASE_IN, 0)
 	$AudioStreamPlayer/Tween.start()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	# Finished fading out the audio
 	$AudioStreamPlayer.stop()
 

@@ -20,9 +20,8 @@ animations = [ {
 } ]
 
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 5
+rarity = 40
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( 1.71449, -18.0285 )
 frames = SubResource( 1 )
-frame = 0
