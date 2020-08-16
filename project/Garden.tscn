@@ -54,7 +54,6 @@ rotation = 1.555
 [node name="BirdfeedersLayer" type="Node2D" parent="."]
 
 [node name="Pond" parent="BirdfeedersLayer" instance=ExtResource( 7 )]
-visible = true
 position = Vector2( 133.349, 478.963 )
 
 [node name="FeedBucket" parent="BirdfeedersLayer" instance=ExtResource( 8 )]
