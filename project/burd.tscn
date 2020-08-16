@@ -17,7 +17,7 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "flap",
-"speed": 3.0
+"speed": 5.0
 } ]
 
 [node name="Burd" type="Area2D"]
@@ -35,7 +35,7 @@ rotation = 0.0407136
 rotate = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BurdPath/BurdPathFollow"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 animation = "flap"
 frame = 1

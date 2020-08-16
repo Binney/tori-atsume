@@ -18,6 +18,8 @@ var arriving = true
 var departing = false
 var destination
 
+const PIXEL_SCALE_FACTOR = 2
+
 func _ready():
 	pass
 
@@ -52,9 +54,9 @@ func tick_arrive():
 	var new_x = $BurdPath/BurdPathFollow.position.x
 
 	if (old_x > new_x):
-		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-3, 0)
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-PIXEL_SCALE_FACTOR, 0)
 	else:
-		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(3, 0)
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(PIXEL_SCALE_FACTOR, 0)
 
 func tick_hanging_out():
 	age += 1
@@ -75,9 +77,9 @@ func tick_depart():
 	var new_x = $BurdPath/BurdPathFollow.position.x
 
 	if (old_x > new_x):
-		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-3, 0)
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(-PIXEL_SCALE_FACTOR, 0)
 	else:
-		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(3, 0)
+		$BurdPath/BurdPathFollow/AnimatedSprite.transform.x = Vector2(PIXEL_SCALE_FACTOR, 0)
 
 func _on_VisibilityNotifier2D_viewport_entered(viewport):
 	print("Spawned")
