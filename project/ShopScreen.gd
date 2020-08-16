@@ -15,6 +15,8 @@ func _maybe_purchase_limited():
 			do_purchase = true
 		else:
 			print("You already have as many {str} as possible!".format({"str":current_item}))
+			$ExceedItemLimit/RichTextLabel.set_text("You already have as many {str} as possible!".format({"str":current_item}))
+			$ExceedItemLimit.popup_centered()
 	else:
 		do_purchase = true
 	if do_purchase:
@@ -27,7 +29,8 @@ func do_purchase():
 		purchases[current_item] = 1
 	print("Buying {str}".format({"str":current_item}))
 	InventoryManagement._add_to_inventory(current_item)
-
+	InventoryManagement._update_Money(InventoryManagement.item_name_to_item[current_item].instance().get("item_cost") * -1)
+	
 func _on_Buy_button_up():
 	# Check if current_item is set to ""
 	# i.e. user has not selected anything
@@ -55,7 +58,6 @@ func _check_money():
 	var item_to_buy = InventoryManagement.item_name_to_item[current_item].instance()
 	if InventoryManagement.money >= item_to_buy.get("item_cost"):
 		# lol infinite money if you forget the multiplication by -1
-		InventoryManagement._update_Money(item_to_buy.get("item_cost") * -1)
 		return true
 	else:
 		return false

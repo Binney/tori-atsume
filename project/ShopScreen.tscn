@@ -232,6 +232,23 @@ bbcode_enabled = true
 bbcode_text = "[center]Please choose something to buy![/center]"
 text = "Please choose something to buy!"
 scroll_active = false
+
+[node name="ExceedItemLimit" type="WindowDialog" parent="."]
+margin_right = 400.0
+margin_bottom = 100.0
+custom_fonts/title_font = ExtResource( 2 )
+popup_exclusive = true
+window_title = "Alert!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ExceedItemLimit"]
+margin_right = 400.0
+margin_bottom = 100.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Please choose something to buy![/center]"
+text = "Please choose something to buy!"
+scroll_active = false
 [connection signal="button_up" from="Item1" to="." method="_on_Item1_button_up"]
 [connection signal="button_up" from="Item2" to="." method="_on_Item2_button_up"]
 [connection signal="button_up" from="Item3" to="." method="_on_Item3_button_up"]
