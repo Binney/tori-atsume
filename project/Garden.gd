@@ -6,6 +6,7 @@ const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
 const Pigeon = preload("res://Pigeon.tscn")
+const Bucket = preload("res://FeedBucket.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
@@ -56,7 +57,7 @@ func fillBucket(food_name):
 	var managed_fill = false
 	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if b.fullness == 0:
+		if food_name in b.fillable and b.fullness == 0:
 			managed_fill = true
 			b.fill(food_name)
 			break
@@ -72,13 +73,6 @@ func fillTree():
 	return managed_fill
 	
 	
-func fillNestBox():
-	var managed_fill = false
-	var nestbox = Garden.get_node("Background/NestBox")
-	if nestbox.empty:
-		managed_fill = true
-		nestbox._fill()
-	return managed_fill
 
 # ======================
 # BIRD SPAWNING HATCHERY
