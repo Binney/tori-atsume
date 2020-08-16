@@ -21,9 +21,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Inventory="*res://Inventory.tscn"
-InventoryManagement="*res://InventoryManagement.gd"
 Garden="*res://Garden.tscn"
+InventoryManagement="*res://InventoryManagement.gd"
+Inventory="*res://Inventory.tscn"
 ShopScreen="*res://ShopScreen.tscn"
 
 [display]

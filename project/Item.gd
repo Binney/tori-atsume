@@ -1,17 +1,23 @@
-extends Node2D
+extends Control
 
 
 # Declare member variables here. Examples:
-export var item_name = 'GenericItem'
-export(int) var item_cost = 1
-export var item_texture = 'res://itemart/loafcat.PNG'
-export var count = 1
+var item_name = null
+var item_cost = null
+var item_texture = null
+var count = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_init()
 	$Texture.texture = load(item_texture)
-	$Texture.rect_size.x = 30
-	$Texture.rect_size.y = 44
+	$Texture.rect_size.x = InventoryManagement.ITEM_WIDTH
+	$Texture.rect_size.y = InventoryManagement.ITEM_HEIGHT
 	$ItemCount.text = "1"
+	
+func _init():
+	item_name = 'GenericItem'
+	item_cost = 1
+	item_texture = 'res://itemart/loafcat.PNG'
 	
 func _update_count(val):
 	count += val 
@@ -22,9 +28,12 @@ func _update_count(val):
 #	pass
 
 func _try_action_in_garden():
-	return Garden.fillBucket("res://itemart/seedbucket.png")
-	# !!! should be implemented in subclass
-
+	var managed = false
+	# !!! this function should be implemented in subclasses! this is just used for testing atm.
+	managed = Garden.fillTree()
+	if not managed:
+		managed = Garden.fillNestBox()
+	return managed
 		
 
 func _on_Texture_gui_input(event):

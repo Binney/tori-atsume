@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shop.png-908e14b5602b74fc2acacd92bce5ac3f.stex"
+path="res://.import/nestbox_half.png-ff10190c2b91a5801f9fbd46437ceed3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shopart/shop.png"
-dest_files=[ "res://.import/shop.png-908e14b5602b74fc2acacd92bce5ac3f.stex" ]
+source_file="res://itemart/nestbox_half.png"
+dest_files=[ "res://.import/nestbox_half.png-ff10190c2b91a5801f9fbd46437ceed3.stex" ]
 
 [params]
 

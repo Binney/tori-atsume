@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shop.png-908e14b5602b74fc2acacd92bce5ac3f.stex"
+path="res://.import/meatbucket.png-b76d0a5e74e3f81e04b0ad48d2bee723.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shopart/shop.png"
-dest_files=[ "res://.import/shop.png-908e14b5602b74fc2acacd92bce5ac3f.stex" ]
+source_file="res://itemart/meatbucket.png"
+dest_files=[ "res://.import/meatbucket.png-b76d0a5e74e3f81e04b0ad48d2bee723.stex" ]
 
 [params]
 
