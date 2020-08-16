@@ -5,6 +5,7 @@ extends Control
 var item_name = null
 var item_cost = null
 var item_texture = null
+var item_formatted_name = null
 var count = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():

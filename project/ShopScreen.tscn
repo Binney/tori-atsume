@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://shopart/shop.png" type="Texture" id=1]
 [ext_resource path="res://pangolin.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ShopScreen.gd" type="Script" id=3]
-[ext_resource path="res://itemart/seedbucket.png" type="Texture" id=4]
+[ext_resource path="res://SeedBucket.tscn" type="PackedScene" id=4]
 [ext_resource path="res://itemart/meatbucket.png" type="Texture" id=5]
 [ext_resource path="res://itemart/fruitbucket.png" type="Texture" id=6]
 [ext_resource path="res://itemart/goobucket.png" type="Texture" id=7]
@@ -13,6 +13,24 @@
 [ext_resource path="res://itemart/fruittree.png" type="Texture" id=11]
 [ext_resource path="res://theme/GUITheme.tres" type="Theme" id=12]
 [ext_resource path="res://itemart/pond.png" type="Texture" id=13]
+[ext_resource path="res://NestBox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://FruitBucket.tscn" type="PackedScene" id=15]
+[ext_resource path="res://MeatBucket.tscn" type="PackedScene" id=16]
+[ext_resource path="res://itemart/seedbucket.png" type="Texture" id=17]
+[ext_resource path="res://GooBucket.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Pond.tscn" type="PackedScene" id=19]
+[ext_resource path="res://WaterBucket.tscn" type="PackedScene" id=20]
+[ext_resource path="res://IceBucket.tscn" type="PackedScene" id=21]
+[ext_resource path="res://FruitTree.tscn" type="PackedScene" id=22]
+[ext_resource path="res://fonts/CompassGold24pt.tres" type="DynamicFont" id=23]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.929412, 0.937255, 0.0470588, 1 )
 
 [node name="ShopScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -23,6 +41,7 @@ margin_right = 512.0
 margin_bottom = 609.0
 texture = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -33,107 +52,185 @@ margin_left = 176.0
 margin_top = 61.0
 margin_right = 360.0
 margin_bottom = 109.0
-custom_fonts/normal_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 23 )
 text = "The Shoppe"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item1" type="Button" parent="."]
-margin_left = 82.0
-margin_top = 117.0
-margin_right = 294.0
-margin_bottom = 323.0
+margin_left = 80.0
+margin_top = 112.0
+margin_right = 292.0
+margin_bottom = 318.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Seed Bucket"
-icon = ExtResource( 4 )
+custom_styles/focus = SubResource( 1 )
+icon = ExtResource( 17 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item1"]
+margin_left = -40.0
+margin_top = 220.0
+margin_right = 200.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item2" type="Button" parent="."]
 margin_left = 216.0
-margin_top = 118.0
+margin_top = 112.0
 margin_right = 428.0
-margin_bottom = 324.0
+margin_bottom = 318.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Meat Bucket"
 icon = ExtResource( 5 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item2"]
+margin_left = -30.0
+margin_top = 220.0
+margin_right = 210.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item3" type="Button" parent="."]
-margin_left = 354.0
-margin_top = 117.0
-margin_right = 566.0
-margin_bottom = 323.0
+margin_left = 360.0
+margin_top = 112.0
+margin_right = 572.0
+margin_bottom = 318.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Fruit Bucket"
 icon = ExtResource( 6 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item3"]
+margin_left = -15.0001
+margin_top = 220.0
+margin_right = 225.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item4" type="Button" parent="."]
-margin_left = 82.0
+margin_left = 80.0
 margin_top = 232.0
-margin_right = 294.0
+margin_right = 292.0
 margin_bottom = 438.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Goo Bucket"
 icon = ExtResource( 7 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item4"]
+margin_left = -35.0
+margin_top = 220.0
+margin_right = 205.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item5" type="Button" parent="."]
-margin_left = 223.0
-margin_top = 239.0
-margin_right = 435.0
-margin_bottom = 445.0
+margin_left = 216.0
+margin_top = 240.0
+margin_right = 428.0
+margin_bottom = 446.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Nest"
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item5"]
+margin_left = 3.05176e-05
+margin_top = 200.0
+margin_right = 240.0
+margin_bottom = 260.0
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item6" type="Button" parent="."]
-margin_left = 359.961
-margin_top = 225.764
-margin_right = 571.961
-margin_bottom = 431.764
+margin_left = 360.0
+margin_top = 240.0
+margin_right = 572.0
+margin_bottom = 446.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Water"
 icon = ExtResource( 9 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item6"]
+margin_left = -12.4026
+margin_top = 200.59
+margin_right = 227.597
+margin_bottom = 260.59
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item7" type="Button" parent="."]
-margin_left = 73.9818
-margin_top = 350.49
-margin_right = 285.982
-margin_bottom = 556.49
+margin_left = 80.0
+margin_top = 352.0
+margin_right = 292.0
+margin_bottom = 558.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Ice"
 icon = ExtResource( 10 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item7"]
+margin_left = -37.4545
+margin_top = 218.775
+margin_right = 202.546
+margin_bottom = 278.775
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -143,55 +240,47 @@ margin_top = 346.035
 margin_right = 443.671
 margin_bottom = 552.035
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Tree"
 icon = ExtResource( 11 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item8"]
+margin_left = -49.1776
+margin_top = 234.912
+margin_right = 190.822
+margin_bottom = 294.912
+rect_scale = Vector2( 1.4, 1.4 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Item9" type="Button" parent="."]
-margin_left = 369.761
-margin_top = 360.289
-margin_right = 581.76
-margin_bottom = 566.289
+margin_left = 360.0
+margin_top = 360.0
+margin_right = 571.999
+margin_bottom = 566.0
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Pond"
 icon = ExtResource( 13 )
 flat = true
 expand_icon = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Item10" type="Button" parent="."]
-margin_left = 82.0
-margin_top = 456.0
-margin_right = 294.0
-margin_bottom = 662.0
-rect_scale = Vector2( 0.4, 0.4 )
+[node name="RichTextLabel" type="RichTextLabel" parent="Item9"]
+margin_left = 43.0975
+margin_top = 199.278
+margin_right = 283.098
+margin_bottom = 259.278
+rect_scale = Vector2( 1.4, 1.4 )
 __meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item11" type="Button" parent="."]
-margin_left = 216.0
-margin_top = 456.0
-margin_right = 428.0
-margin_bottom = 662.0
-rect_scale = Vector2( 0.4, 0.4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Item12" type="Button" parent="."]
-margin_left = 353.0
-margin_top = 456.0
-margin_right = 565.0
-margin_bottom = 662.0
-rect_scale = Vector2( 0.4, 0.4 )
-__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -256,6 +345,33 @@ bbcode_enabled = true
 bbcode_text = "[center]Please choose something to buy![/center]"
 text = "Please choose something to buy!"
 scroll_active = false
+
+[node name="SeedBucket" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="MeatBucket" parent="." instance=ExtResource( 16 )]
+visible = false
+
+[node name="FruitBucket" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[node name="GooBucket" parent="." instance=ExtResource( 18 )]
+visible = false
+
+[node name="NestBox" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="WaterBucket" parent="." instance=ExtResource( 20 )]
+visible = false
+
+[node name="IceBucket" parent="." instance=ExtResource( 21 )]
+visible = false
+
+[node name="Tree" parent="." instance=ExtResource( 22 )]
+visible = false
+
+[node name="Pond" parent="." instance=ExtResource( 19 )]
+visible = false
 [connection signal="button_up" from="Item1" to="." method="_on_Item1_button_up"]
 [connection signal="button_up" from="Item2" to="." method="_on_Item2_button_up"]
 [connection signal="button_up" from="Item3" to="." method="_on_Item3_button_up"]

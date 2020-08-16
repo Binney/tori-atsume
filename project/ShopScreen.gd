@@ -6,6 +6,32 @@ var purchases = {}
 var limited_purchase = {"FruitTree": 1, "Pond": 1}
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Item1/RichTextLabel.set_text($SeedBucket.get("item_formatted_name") + " - " + str($SeedBucket.get("item_cost")))
+	$Item1/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item2/RichTextLabel.set_text($MeatBucket.get("item_formatted_name") + " - " + str($MeatBucket.get("item_cost")))
+	$Item2/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item3/RichTextLabel.set_text($FruitBucket.get("item_formatted_name") + " - " + str($FruitBucket.get("item_cost")))
+	$Item3/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item4/RichTextLabel.set_text($GooBucket.get("item_formatted_name") + " - " + str($GooBucket.get("item_cost")))
+	$Item4/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item5/RichTextLabel.set_text($NestBox.get("item_formatted_name") + " - " + str($NestBox.get("item_cost")))
+	$Item5/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item6/RichTextLabel.set_text($WaterBucket.get("item_formatted_name") + " - " + str($WaterBucket.get("item_cost")))
+	$Item6/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item7/RichTextLabel.set_text($IceBucket.get("item_formatted_name") + " - " + str($IceBucket.get("item_cost")))
+	$Item7/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item8/RichTextLabel.set_text($Tree.get("item_formatted_name") + " - " + str($Tree.get("item_cost")))
+	$Item8/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
+	
+	$Item9/RichTextLabel.set_text($Pond.get("item_formatted_name") + " - " + str($Pond.get("item_cost")))
+	$Item9/RichTextLabel.add_font_override("normal_font",load("res://fonts/SinsGold24pt.tres"))
 	ShopScreen.hide()
 
 func _maybe_purchase_limited():

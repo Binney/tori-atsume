@@ -9,6 +9,7 @@ func _init():
 	item_name = "Pond"
 	item_cost = 1
 	item_texture = "res://itemart/pond.png"
+	item_formatted_name = 'Pond'
 
 
 
