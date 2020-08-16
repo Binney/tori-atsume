@@ -39,6 +39,7 @@ func _on_BurdTimer_timeout():
 	spawn_birds()
 
 func spawn_flying_bird(species, target_birdfeeder):
+	print("Spawning " + species.to_string())
 	var burd = species.instance()
 	burd.position.x = 0
 	burd.position.y = 0
@@ -46,7 +47,11 @@ func spawn_flying_bird(species, target_birdfeeder):
 
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
-	var end = target_birdfeeder.position
+	var end
+	if start.x > target_birdfeeder.position.x:
+		end = target_birdfeeder.position + target_birdfeeder.get_child(2).position
+	else:
+		end = target_birdfeeder.position + target_birdfeeder.get_child(4).position
 	var curve = Curve2D.new()
 	curve.add_point(start)
 	curve.add_point(end)
@@ -63,7 +68,11 @@ func spawn_walking_bird(species, target_birdfeeder):
 	burd.tweet()
 
 	var start = [LEFT_WALKING_SPAWN_POINT, RIGHT_WALKING_SPAWN_POINT][randi() % 2]
-	var end = target_birdfeeder.position
+	var end
+	if start.x > target_birdfeeder.position.x:
+		end = target_birdfeeder.position + target_birdfeeder.get_child(3).position
+	else:
+		end = target_birdfeeder.position + target_birdfeeder.get_child(1).position
 	var curve = Curve2D.new()
 	curve.add_point(start)
 	curve.add_point(end)
