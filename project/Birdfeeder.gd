@@ -7,6 +7,7 @@ var MAX_CAPACITY = 10
 var fullness = 0
 var being_consumed = false
 var contents = null
+var floatable = false
 
 var fillable = []
 # Birds can "lock" a birdfeeder so maximum 1 bird has this feeder as its target at a time
