@@ -43,12 +43,6 @@ func _ready():
 #	pass
 
 
-func _on_GardenButton_pressed():
-	pass
-	#get_node("GardenButton").text = "Back to garden view"
-
-func _on_ShopButton_pressed():
-	pass
 
 	
 func _update_Money(val):
@@ -62,7 +56,7 @@ func _add_to_inventory(item_name):
 	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
 	var found = false
 	for i in items:
-		if i.item_name == item_name:
+		if i.item_name.to_lower() == item_name.to_lower():
 			found = true
 			i._update_count(1)
 			break
@@ -74,7 +68,7 @@ func _add_to_inventory(item_name):
 func _remove_from_inventory(item_name):		
 	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
 	for i in items:
-		if i.item_name == item_name:
+		if i.item_name.to_lower() == item_name.to_lower():
 			if i.count > 1:
 				i._update_count(-1)
 			else:
@@ -92,25 +86,9 @@ func _on_ShopButton_button_up():
 		Garden._in_garden()
 		ShopScreen.hide()
 		$HBoxContainer/Buttons/ShopButton.text = "Shop"
-	#_add_to_inventory("GenericItem")
-	#get_node("GardenButton").text = "Back to garden view"
-	#_update_Money(50)
-
-func _on_GardenButton_button_up():
-	$HBoxContainer/Buttons/GardenButton.hide()
-	$HBoxContainer/Buttons/ShopButton.show()
-	Garden._in_garden()
-	Journal.hide()
-	ShopScreen.hide()
-	#get_tree().change_scene("res://Garden.tscn")
-
-
-
-
 
 func _on_Counter_ready():
 	pass
-
 
 func _on_Counter_draw():
 	$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)

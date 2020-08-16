@@ -99,7 +99,7 @@ func fillGardenSpace(food_name):
 	var managed_fill = false
 	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if food_name in b.fillable and b.fullness == 0:
+		if b.locked == false and food_name in b.fillable and b.fullness == 0:
 			managed_fill = true
 			b.fill(food_name)
 			break

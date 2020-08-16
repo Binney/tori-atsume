@@ -23,7 +23,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Buttons" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = -7.62939e-06
 margin_right = 100.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 100, 0 )
