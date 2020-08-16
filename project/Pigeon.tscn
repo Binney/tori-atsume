@@ -4,6 +4,7 @@
 [ext_resource path="res://Pigeon_Sprites.tres" type="SpriteFrames" id=2]
 
 [node name="Burd" instance=ExtResource( 1 )]
+rarity = 15
 flight_speed = 30
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]

@@ -28,6 +28,7 @@ func tick():
 			print("Empty")
 			$Sprite.texture = load("res://itemart/emptybucket.png") 
 			being_consumed = false
+			locked = false
 
 func set_being_consumed(value):
 	being_consumed = value
