@@ -91,7 +91,10 @@ func arrive():
 	arriving = false
 	if destination.has_method('set_being_consumed'):
 		destination.set_being_consumed(true)
-	$BurdPath/BurdPathFollow/AnimatedSprite.play("perch")
+	if destination.floatable && $BurdPath/BurdPathFollow/AnimatedSprite.frames.has_animation("float"):
+		$BurdPath/BurdPathFollow/AnimatedSprite.play("float")
+	else:
+		$BurdPath/BurdPathFollow/AnimatedSprite.play("perch")
 
 func depart():
 	print("Departing")
