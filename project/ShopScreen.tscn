@@ -11,7 +11,8 @@
 [ext_resource path="res://itemart/waterbucket_full1.png" type="Texture" id=9]
 [ext_resource path="res://itemart/icebucket_full.png" type="Texture" id=10]
 [ext_resource path="res://itemart/fruittree.png" type="Texture" id=11]
-[ext_resource path="res://itemart/pond.png" type="Texture" id=12]
+[ext_resource path="res://theme/GUITheme.tres" type="Theme" id=12]
+[ext_resource path="res://itemart/pond.png" type="Texture" id=13]
 
 [node name="ShopScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -157,7 +158,7 @@ margin_right = 581.76
 margin_bottom = 566.289
 rect_scale = Vector2( 0.4, 0.4 )
 text = "Pond"
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 expand_icon = true
 __meta__ = {
@@ -199,6 +200,7 @@ margin_left = 168.0
 margin_top = 552.0
 margin_right = 344.0
 margin_bottom = 592.0
+theme = ExtResource( 12 )
 text = "Buy"
 __meta__ = {
 "_edit_use_anchors_": false
