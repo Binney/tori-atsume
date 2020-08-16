@@ -33,12 +33,12 @@ func _on_BurdTimer_timeout():
 			child.tick()
 	spawn_birds()
 
-func spawn_flying_bird(burd, target_birdfeeder):
-	add_child(burd)
-
+func spawn_flying_bird(species, target_birdfeeder):
+	var burd = species.instance()
 	burd.position.x = 0
 	burd.position.y = 0
 	burd.tweet()
+
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
 	var end = target_birdfeeder.position
@@ -46,20 +46,19 @@ func spawn_flying_bird(burd, target_birdfeeder):
 	curve.add_point(start)
 	curve.add_point(end)
 	burd.set_flightpath(curve)
+
 	burd.set_destination(target_birdfeeder)
 	target_birdfeeder.locked = true
-	print("Set curve")
-	print(start)
-	print(" to ")
-	print(end)
+	add_child(burd)
 
-func fillBucket(texture):
+
+func fillBucket(food_name):
 	var managed_fill = false
-	var buckets = Garden.get_node("Background/BirdTable").get_children()
+	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if b.empty:
+		if b.fullness == 0:
 			managed_fill = true
-			b._fill(texture)
+			b.fill(food_name)
 			break
 	return managed_fill
 		#res://.import/emptybucket.png
@@ -97,14 +96,15 @@ func spawn_birds():
 	if (randi() % robin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
-				spawn_flying_bird(robin, child)
+				spawn_flying_bird(Robin, child)
+				return # Don't spawn multiple birds in one tick
 
 	var pigeon = Pigeon.instance()
-	# TODO add in rules about how more pigeons arrive the more pigeons are already here
+#	# TODO add in rules about how more pigeons arrive the more pigeons are already here
 	if (randi() % pigeon.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
-				spawn_flying_bird(pigeon, child)
-
+				spawn_flying_bird(Pigeon, child)
+				return # Don't spawn multiple birds in one tick
 
 	## TODO more birds here
