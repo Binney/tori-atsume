@@ -32,12 +32,21 @@ func _on_Buy_button_up():
 	# Check if current_item is set to ""
 	# i.e. user has not selected anything
 	# warn them using popup.
-	if len(current_item) == 0:
-		$NullBuyCheck.popup_centered()
 	if _check_money():
-		_maybe_purchase_limited()
+		# User has enough money
+		if len(current_item) == 0:
+			# However, user has not selected an item to buy
+			$NullBuyCheck.popup_centered()
+		else:
+			# Has money and selected something - let purchase happen
+			_maybe_purchase_limited()
 	else:
-		$NoFundsCheck.popup_centered()
+		if len(current_item) == 0: 
+			# No money and no selected item
+			$NoFundsCheck.popup_centered()
+		else:
+			# No money but selected item
+			$NoFundsCheck.popup_centered()
 
 func _check_money():
 	# Function to check if user has 
