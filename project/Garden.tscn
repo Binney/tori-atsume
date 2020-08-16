@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://FeedNestBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Garden.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://itemart/garden.png" type="Texture" id=4]
 [ext_resource path="res://FeedWaterBucket.tscn" type="PackedScene" id=5]
 [ext_resource path="res://FeedTree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://FeedPond.tscn" type="PackedScene" id=7]
 [ext_resource path="res://FeedBucket.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
@@ -52,6 +53,10 @@ rotation = 1.555
 
 [node name="BirdfeedersLayer" type="Node2D" parent="."]
 
+[node name="Pond" parent="BirdfeedersLayer" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 133.349, 478.963 )
+
 [node name="FeedBucket" parent="BirdfeedersLayer" instance=ExtResource( 8 )]
 position = Vector2( 446.054, 347.977 )
 
@@ -62,7 +67,7 @@ position = Vector2( 617.054, 350.977 )
 position = Vector2( 523.054, 351.977 )
 
 [node name="NestBox" parent="BirdfeedersLayer" instance=ExtResource( 1 )]
-position = Vector2( 237, 432 )
+position = Vector2( 370.349, 529.39 )
 
 [node name="WaterBucket" parent="BirdfeedersLayer" instance=ExtResource( 5 )]
 position = Vector2( 896, 515 )

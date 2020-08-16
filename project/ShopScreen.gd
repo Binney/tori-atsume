@@ -3,7 +3,7 @@ extends Node2D
 # Declare member variables here. Examples:
 var current_item = ""
 var purchases = {}
-var limited_purchase = {"FruitTree": 1}
+var limited_purchase = {"FruitTree": 1, "Pond": 1}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ShopScreen.hide()
@@ -82,3 +82,9 @@ func _on_Item7_pressed():
 func _on_Item8_pressed():
 	print("Selecting Tree")
 	current_item = "FruitTree"
+
+
+func _on_Item9_pressed():
+	print("Selecting Pond")
+	current_item = "Pond"
+

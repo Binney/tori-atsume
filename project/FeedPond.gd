@@ -5,7 +5,7 @@ extends "Birdfeeder.gd"
 func _ready():
 	fullness = 0
 	$Sprite.visible = false
-	fillable = ["fruittree"]
+	fillable = ["pond"]
 	
 func tick():
 	pass		
