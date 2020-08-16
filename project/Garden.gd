@@ -53,13 +53,13 @@ func spawn_flying_bird(burd, target_birdfeeder):
 	print(" to ")
 	print(end)
 
-func fillBucket(texture):
+func fillBucket(food_name):
 	var managed_fill = false
-	var buckets = Garden.get_node("Background/BirdTable").get_children()
+	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if b.empty:
+		if b.fullness == 0:
 			managed_fill = true
-			b._fill(texture)
+			b.fill(food_name)
 			break
 	return managed_fill
 		#res://.import/emptybucket.png
