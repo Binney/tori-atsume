@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shopart/shop.png" type="Texture" id=1]
 [ext_resource path="res://pangolin.tres" type="DynamicFont" id=2]
@@ -237,7 +237,7 @@ rect_clip_content = false
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]Please choose something to buy![/center]"
-text = "Please choose something to buy!"
+text = "Not enough money to buy item!"
 scroll_active = false
 
 [node name="ExceedItemLimit" type="WindowDialog" parent="."]
