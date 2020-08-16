@@ -53,7 +53,7 @@ func _on_ShopButton_pressed():
 	
 func _update_Money(val):
 	# val is positive or negative int to update money with
-	if money:
+	if money != null:
 		money += val
 		var money_counter =  Inventory.get_node("HBoxContainer/Items/Money/MoneyBox/Labels/Counter")
 		money_counter.text = str(money)

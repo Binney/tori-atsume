@@ -38,6 +38,7 @@ rotate = false
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 animation = "flap"
+frame = 1
 playing = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="BurdPath/BurdPathFollow"]
