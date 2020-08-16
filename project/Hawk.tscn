@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://burd.tscn" type="PackedScene" id=1]
+[ext_resource path="res://burdart/hawk_fly2.png" type="Texture" id=2]
+[ext_resource path="res://burdart/hawk_perch1.png" type="Texture" id=3]
+[ext_resource path="res://burdart/hawk_fly1.png" type="Texture" id=4]
+[ext_resource path="res://burdart/hawk_perch2.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flap",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "perch",
+"speed": 5.0
+} ]
+
+[node name="Burd" instance=ExtResource( 1 )]
+rarity = 5
+
+[node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
+position = Vector2( 1.71449, -18.0285 )
+frames = SubResource( 1 )
+frame = 0

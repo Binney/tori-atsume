@@ -9,6 +9,7 @@ const Duck = preload("res://Duck.tscn")
 const Cassowary = preload("res://Cassowary.tscn")
 const Penguin = preload("res://Penguin.tscn")
 const Skink = preload("res://Skink.tscn")
+const Hawk = preload("res://Hawk.tscn")
 
 const LEFT_WALKING_SPAWN_POINT = Vector2(-200, 450)
 const RIGHT_WALKING_SPAWN_POINT = Vector2(1650, 450)
@@ -130,13 +131,12 @@ func spawn_birds():
 				spawn_flying_bird(Robin, child)
 				return # Don't spawn multiple birds in one tick
 
-	var pigeon = Pigeon.instance()
-#	# TODO add in rules about how more pigeons arrive the more pigeons are already here
-	if (randi() % pigeon.rarity == 0):
+	var hawk = Hawk.instance()
+	if (randi() % hawk.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
-			if child.fullness > 0 && !child.locked:
-				Journal.discover("Pigeon")
-				spawn_flying_bird(Pigeon, child)
+			if child.fullness > 0 && !child.locked && child.contents in ['meatbucket']:
+				Journal.discover("Hawk")
+				spawn_flying_bird(Hawk, child)
 				return # Don't spawn multiple birds in one tick
 
 	var duck = Duck.instance()
@@ -146,7 +146,6 @@ func spawn_birds():
 				Journal.discover("Duck")
 				spawn_flying_bird(Duck, child)
 				return # Don't spawn multiple birds in one tick
-
 
 	var cassowary = Cassowary.instance()
 	if (randi() % cassowary.rarity == 0):
@@ -171,7 +170,16 @@ func spawn_birds():
 				Journal.discover("Penguin")
 				spawn_walking_bird(Penguin, child)
 				return # Don't spawn multiple birds in one tick
-				
+
+	# Chuck Pigeon at the bottom, because Pigeon is an unfussy eater and will nick other birbs' food given the chance
+	var pigeon = Pigeon.instance()
+#	# TODO add in rules about how more pigeons arrive the more pigeons are already here
+	if (randi() % pigeon.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked:
+				Journal.discover("Pigeon")
+				spawn_flying_bird(Pigeon, child)
+				return # Don't spawn multiple birds in one tick
 
 
 	## TODO more birds here
