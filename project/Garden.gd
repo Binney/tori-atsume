@@ -5,6 +5,7 @@ var in_garden = false
 const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
+const Pigeon = preload("res://Pigeon.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
@@ -32,7 +33,7 @@ func _on_BurdTimer_timeout():
 			child.tick()
 	spawn_birds()
 
-func spawn_robin(burd, target_birdfeeder):
+func spawn_flying_bird(burd, target_birdfeeder):
 	add_child(burd)
 
 	burd.position.x = 0
@@ -40,7 +41,7 @@ func spawn_robin(burd, target_birdfeeder):
 	burd.tweet()
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
-	var end = $BirdfeedersLayer/FeedBucket.position
+	var end = target_birdfeeder.position
 	var curve = Curve2D.new()
 	curve.add_point(start)
 	curve.add_point(end)
@@ -96,7 +97,14 @@ func spawn_birds():
 	if (randi() % robin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
-				spawn_robin(robin, child)
+				spawn_flying_bird(robin, child)
+
+	var pigeon = Pigeon.instance()
+	# TODO add in rules about how more pigeons arrive the more pigeons are already here
+	if (randi() % pigeon.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked:
+				spawn_flying_bird(pigeon, child)
 
 
 	## TODO more birds here

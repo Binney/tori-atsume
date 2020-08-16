@@ -11,7 +11,8 @@ export var siesta = 10
 # 120 = it will on average appear once a minute if it has food (2 ticks per second)
 export var rarity = 1
 
-var flight_speed = 15
+export var flight_speed = 15
+
 var age = 0
 var arriving = true
 var departing = false
