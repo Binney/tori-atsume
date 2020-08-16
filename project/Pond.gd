@@ -7,7 +7,7 @@ extends "Item.gd"
 
 func _init():
 	item_name = "Pond"
-	item_cost = 200
+	item_cost = 50
 	item_texture = "res://itemart/pond.png"
 	item_formatted_name = 'Pond'
 
