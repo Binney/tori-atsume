@@ -2,8 +2,12 @@
 
 [ext_resource path="res://Item.gd" type="Script" id=1]
 
-[node name="Item" type="Node2D"]
+[node name="Item" type="Control"]
+rect_min_size = Vector2( 30, 44 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Texture" type="TextureRect" parent="."]
 margin_right = 40.0
