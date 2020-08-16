@@ -1,19 +1,13 @@
-extends TextureRect
-
-var empty = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	self.texture = load("res://itemart/nestbox_empty.png")
-	self.rect_scale.x = 1.5
-	self.rect_scale.y = 1.5
-	
-func _fill():
-	empty = false
-	self.texture = load("res://itemart/nestbox_full.png")
-
-func _empty():
-	empty = true
-	self.texture = load("res://itemart/nestbox_empty.png")
+extends "Item.gd"
 
 
+func _init():
+	item_name = 'NestBox'
+	item_cost = 1
+	item_texture = 'res://itemart/nestbox_full.png'
+
+
+func _try_action_in_garden():
+	var managed = false
+	managed = Garden.fillBucket(item_name.to_lower())
+	return managed

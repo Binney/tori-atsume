@@ -8,7 +8,7 @@ var fullness = 0
 var being_consumed = false
 var contents = null
 
-
+var fillable = []
 # Birds can "lock" a birdfeeder so maximum 1 bird has this feeder as its target at a time
 var locked = false
 
@@ -22,14 +22,16 @@ func fill(item_name):
 	contents = item_name
 	$Sprite.texture = load("res://itemart/{str}.png".format({"str":item_name}))
 	fullness = MAX_CAPACITY
-	pass
+
+func empty_texture():
+	pass # should be implemented in subclass
 
 func tick():
 	if being_consumed:
 		fullness -= CONSUMPTION_RATE
 		if fullness <= 0:
 			print("Empty")
-			$Sprite.texture = load("res://itemart/emptybucket.png") 
+			empty_texture()
 			being_consumed = false
 			locked = false
 

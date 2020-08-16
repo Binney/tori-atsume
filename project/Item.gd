@@ -31,8 +31,6 @@ func _try_action_in_garden():
 	var managed = false
 	# !!! this function should be implemented in subclasses! this is just used for testing atm.
 	managed = Garden.fillTree()
-	if not managed:
-		managed = Garden.fillNestBox()
 	return managed
 		
 
