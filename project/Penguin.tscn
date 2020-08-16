@@ -1,11 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Burd.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Pigeon_Sprites.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Penguin_Sprites.tres" type="SpriteFrames" id=2]
 
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 15
-flight_speed = 25
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 frames = ExtResource( 2 )

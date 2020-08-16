@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://shopart/shop.png" type="Texture" id=1]
 [ext_resource path="res://pangolin.tres" type="DynamicFont" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://itemart/waterbucket_full1.png" type="Texture" id=9]
 [ext_resource path="res://itemart/icebucket_full.png" type="Texture" id=10]
 [ext_resource path="res://itemart/fruittree.png" type="Texture" id=11]
+[ext_resource path="res://itemart/pond.png" type="Texture" id=12]
 
 [node name="ShopScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -141,7 +142,7 @@ margin_top = 346.035
 margin_right = 443.671
 margin_bottom = 552.035
 rect_scale = Vector2( 0.4, 0.4 )
-text = "Ice"
+text = "Tree"
 icon = ExtResource( 11 )
 flat = true
 expand_icon = true
@@ -150,11 +151,15 @@ __meta__ = {
 }
 
 [node name="Item9" type="Button" parent="."]
-margin_left = 353.0
-margin_top = 343.0
-margin_right = 565.0
-margin_bottom = 549.0
+margin_left = 369.761
+margin_top = 360.289
+margin_right = 581.76
+margin_bottom = 566.289
 rect_scale = Vector2( 0.4, 0.4 )
+text = "Pond"
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -198,6 +203,57 @@ text = "Buy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NullBuyCheck" type="WindowDialog" parent="."]
+margin_right = 400.0
+margin_bottom = 100.0
+custom_fonts/title_font = ExtResource( 2 )
+popup_exclusive = true
+window_title = "Alert!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NullBuyCheck"]
+margin_right = 400.0
+margin_bottom = 100.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Please choose something to buy![/center]"
+text = "Please choose something to buy!"
+scroll_active = false
+
+[node name="NoFundsCheck" type="WindowDialog" parent="."]
+margin_right = 400.0
+margin_bottom = 100.0
+custom_fonts/title_font = ExtResource( 2 )
+popup_exclusive = true
+window_title = "Alert!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NoFundsCheck"]
+margin_right = 400.0
+margin_bottom = 100.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Please choose something to buy![/center]"
+text = "Not enough money to make purchase!"
+scroll_active = false
+
+[node name="ExceedItemLimit" type="WindowDialog" parent="."]
+margin_right = 400.0
+margin_bottom = 100.0
+custom_fonts/title_font = ExtResource( 2 )
+popup_exclusive = true
+window_title = "Alert!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ExceedItemLimit"]
+margin_right = 400.0
+margin_bottom = 100.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Please choose something to buy![/center]"
+text = "Please choose something to buy!"
+scroll_active = false
 [connection signal="button_up" from="Item1" to="." method="_on_Item1_button_up"]
 [connection signal="button_up" from="Item2" to="." method="_on_Item2_button_up"]
 [connection signal="button_up" from="Item3" to="." method="_on_Item3_button_up"]
@@ -206,4 +262,5 @@ __meta__ = {
 [connection signal="pressed" from="Item6" to="." method="_on_Item6_pressed"]
 [connection signal="pressed" from="Item7" to="." method="_on_Item7_pressed"]
 [connection signal="pressed" from="Item8" to="." method="_on_Item8_pressed"]
+[connection signal="pressed" from="Item9" to="." method="_on_Item9_pressed"]
 [connection signal="button_up" from="Buy" to="." method="_on_Buy_button_up"]
