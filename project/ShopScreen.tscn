@@ -237,7 +237,7 @@ rect_clip_content = false
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]Please choose something to buy![/center]"
-text = "Not enough money to buy item!"
+text = "Please choose something to buy!"
 scroll_active = false
 
 [node name="ExceedItemLimit" type="WindowDialog" parent="."]
