@@ -3,5 +3,5 @@
 [ext_resource path="res://fonts/CompassGold.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 48
+size = 36
 font_data = ExtResource( 1 )
