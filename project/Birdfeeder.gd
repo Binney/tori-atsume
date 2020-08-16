@@ -28,8 +28,10 @@ func empty_texture():
 	pass # should be implemented in subclass
 
 func free_feeder():
-	set_being_consumed(false)
-	locked = false
+	if being_consumed:
+		set_being_consumed(false)
+	if locked: 
+		locked = false
 
 
 func tick():
