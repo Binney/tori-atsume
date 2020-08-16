@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
-[ext_resource path="res://itemart/splashpage.png" type="Texture" id=3]
+[ext_resource path="res://itemart/splashpage_nobuttons.png" type="Texture" id=2]
 [ext_resource path="res://theme/GUITheme.tres" type="Theme" id=5]
 
 [node name="Control" type="Control"]
@@ -14,10 +14,10 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 0.475647
-margin_top = 1.42696
+margin_top = 2.01094
 margin_right = 1024.48
-margin_bottom = 601.427
-texture = ExtResource( 3 )
+margin_bottom = 602.011
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,9 +34,9 @@ __meta__ = {
 }
 
 [node name="GardenButton" type="Button" parent="."]
-margin_left = 382.573
+margin_left = 381.989
 margin_top = 331.768
-margin_right = 642.573
+margin_right = 641.989
 margin_bottom = 406.768
 rect_pivot_offset = Vector2( 201.192, 74.027 )
 theme = ExtResource( 5 )
