@@ -58,7 +58,6 @@ func _update_Money(val):
 		var money_counter =  Inventory.get_node("HBoxContainer/Items/Money/MoneyBox/Labels/Counter")
 		money_counter.text = str(money)
 
-	
 func _add_to_inventory(item_name):
 	var items = Inventory.get_node("HBoxContainer/Items/ItemBox").get_children()
 	var found = false
@@ -86,11 +85,15 @@ func _on_ShopButton_button_up():
 	#money += 50 
 	ShopScreen.show()
 	Garden._left_garden()
+	$HBoxContainer/Buttons/GardenButton.show()
+	$HBoxContainer/Buttons/ShopButton.hide()
 	#_add_to_inventory("GenericItem")
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
 
 func _on_GardenButton_button_up():
+	$HBoxContainer/Buttons/GardenButton.hide()
+	$HBoxContainer/Buttons/ShopButton.show()
 	Garden._in_garden()
 	ShopScreen.hide()
 	#get_tree().change_scene("res://Garden.tscn")
