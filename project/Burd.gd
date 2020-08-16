@@ -93,8 +93,8 @@ func arrive():
 
 func depart():
 	print("Departing")
-	if destination.has_method('set_being_consumed'):
-		destination.set_being_consumed(false)
+	if destination.has_method('free_feeder'):
+		destination.free_feeder()
 	departing = true
 	$BurdPath/BurdPathFollow/AnimatedSprite.play("flap")
 

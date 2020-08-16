@@ -18,12 +18,10 @@ func tick():
 		if fullness <= 0:
 			print("Empty")
 			$Sprite.texture = load("res://itemart/emptyfloorbucket.png") 
-			being_consumed = false
-			locked = false
+			free_feeder()
 
 
 func fill(item_name):
-	print(item_name)
 	print("Filled")
 	contents = item_name
 	$Sprite.texture = load(item_to_textures[contents][0])
