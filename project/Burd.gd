@@ -1,11 +1,12 @@
 extends Area2D
 
-
 export var min_speed = 150  # Minimum speed range.
 export var max_speed = 250  # Maximum speed range.
 
 export var lifetime = 60
 export var point = 0
+
+export var rarity = 1
 
 var flight_speed = 15
 var age = 0
@@ -15,6 +16,8 @@ var destination
 
 func _ready():
 	pass
+
+
 
 func tweet():
 	# TODO actually make a noise
