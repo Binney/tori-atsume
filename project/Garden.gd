@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var in_garden = false
 const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
