@@ -82,20 +82,18 @@ func _remove_from_inventory(item_name):
 			break
 		
 func _on_ShopButton_button_up():
-	#money += 50 
-	ShopScreen.show()
-	Garden._left_garden()
-	$HBoxContainer/Buttons/GardenButton.show()
-	$HBoxContainer/Buttons/ShopButton.hide()
+	if Garden.in_garden:
+		ShopScreen.show()
+		Garden._left_garden()
+		$HBoxContainer/Buttons/ShopButton.text = "Back"
+	else:
+		Garden._in_garden()
+		ShopScreen.hide()
+		$HBoxContainer/Buttons/ShopButton.text = "Shop"
 	#_add_to_inventory("GenericItem")
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
 
-func _on_GardenButton_button_up():
-	$HBoxContainer/Buttons/GardenButton.hide()
-	$HBoxContainer/Buttons/ShopButton.show()
-	Garden._in_garden()
-	ShopScreen.hide()
 	#get_tree().change_scene("res://Garden.tscn")
 
 
