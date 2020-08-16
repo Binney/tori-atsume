@@ -6,6 +6,8 @@ extends Node2D
 var MAX_CAPACITY = 10
 var fullness = 0
 var being_consumed = false
+var contents = null
+
 
 # Birds can "lock" a birdfeeder so maximum 1 bird has this feeder as its target at a time
 var locked = false
@@ -17,6 +19,7 @@ func _ready():
 	
 func fill(item_name):
 	print("Filled")
+	contents = item_name
 	$Sprite.texture = load("res://itemart/{str}.png".format({"str":item_name}))
 	fullness = MAX_CAPACITY
 	pass
