@@ -155,12 +155,15 @@ func spawn_birds():
 				Journal.discover("Cassowary")
 				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
+
 	var skink = Skink.instance()
 	if (randi() % skink.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['fruitbucket', 'meatbucket']:
+				Journal.discover("Parrot")
 				spawn_walking_bird(Skink, child)
 				return # Don't spawn multiple birds in one tick
+
 	var penguin = Penguin.instance()
 	if (randi() % penguin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():

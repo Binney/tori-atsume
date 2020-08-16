@@ -6,7 +6,8 @@ var achievements = {
 	"Pigeon": false,
 	"Duck": false,
 	"Cassowary": false,
-	"Penguin": false
+	"Penguin": false,
+	"Parrot": false
 }
 
 func _ready():
@@ -28,6 +29,8 @@ func display():
 		$ScrollContainer/GridContainer/Cassowary.hide()
 	if !achievements.Penguin:
 		$ScrollContainer/GridContainer/Penguin.hide()
+	if !achievements.Parrot:
+		$ScrollContainer/GridContainer/Parrot.hide()
 	if count_achievements() == 0:
 		$EmptyLabel.show()
 	show()
