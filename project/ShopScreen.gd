@@ -33,3 +33,19 @@ func _on_Item4_button_up():
 func _on_Item5_button_up():
 	print("Selecting NestBox")
 	current_item = "NestBox"
+
+
+func _on_Item6_pressed():
+	print("Selecting WaterBucket")
+	current_item = "WaterBucket"
+
+
+func _on_Item7_pressed():
+	print("Selecting IceBucket")
+	current_item = "IceBucket"
+
+
+
+func _on_Item8_pressed():
+	print("Selecting Tree")
+	current_item = "FruitTree"

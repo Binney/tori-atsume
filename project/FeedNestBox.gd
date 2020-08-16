@@ -16,8 +16,7 @@ func tick():
 		if fullness <= 0:
 			print("Empty")
 			$Sprite.texture = load("res://itemart/nestbox_empty.png") 
-			being_consumed = false
-			locked = false
+			free_feeder()
 
 
 func fill(item_name):

@@ -26,14 +26,18 @@ func fill(item_name):
 func empty_texture():
 	pass # should be implemented in subclass
 
+func free_feeder():
+	set_being_consumed(false)
+	locked = false
+
+
 func tick():
 	if being_consumed:
 		fullness -= CONSUMPTION_RATE
 		if fullness <= 0:
 			print("Empty")
 			empty_texture()
-			being_consumed = false
-			locked = false
-
+			free_feeder()
+			
 func set_being_consumed(value):
 	being_consumed = value

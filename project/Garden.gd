@@ -83,7 +83,7 @@ func spawn_walking_bird(species, target_birdfeeder):
 	add_child(burd)
 
 
-func fillBucket(food_name):
+func fillGardenSpace(food_name):
 	var managed_fill = false
 	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
@@ -93,14 +93,7 @@ func fillBucket(food_name):
 			break
 	return managed_fill
 		#res://.import/emptybucket.png
-		
-func fillTree():
-	var managed_fill = false
-	var tree = Garden.get_node("Background/Tree")
-	if tree.empty:
-		managed_fill = true
-		tree._fill()
-	return managed_fill
+
 	
 	
 
