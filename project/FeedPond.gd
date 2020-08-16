@@ -6,7 +6,7 @@ func _ready():
 	fullness = 0
 	$Sprite.visible = false
 	fillable = ["pond"]
-	
+	floatable = true
 func tick():
 	pass		
 

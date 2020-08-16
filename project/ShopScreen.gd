@@ -39,6 +39,7 @@ func _on_Buy_button_up():
 		# User has enough money
 		if len(current_item) == 0:
 			# However, user has not selected an item to buy
+			$NullBuyCheck/RichTextLabel.set_text("Please select something to buy!")
 			$NullBuyCheck.popup_centered()
 		else:
 			# Has money and selected something - let purchase happen
@@ -46,9 +47,11 @@ func _on_Buy_button_up():
 	else:
 		if len(current_item) == 0: 
 			# No money and no selected item
+			$NoFundsCheck/RichTextLabel.set_text("You don't have enough money to buy this item!")
 			$NoFundsCheck.popup_centered()
 		else:
 			# No money but selected item
+			$NoFundsCheck/RichTextLabel.set_text("You don't have enough money to buy this item!")
 			$NoFundsCheck.popup_centered()
 
 func _check_money():

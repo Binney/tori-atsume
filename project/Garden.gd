@@ -5,6 +5,7 @@ const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
 const Pigeon = preload("res://Pigeon.tscn")
+const Duck = preload("res://Duck.tscn")
 const Cassowary = preload("res://Cassowary.tscn")
 const Penguin = preload("res://Penguin.tscn")
 
@@ -126,6 +127,14 @@ func spawn_birds():
 			if child.fullness > 0 && !child.locked:
 				spawn_flying_bird(Pigeon, child)
 				return # Don't spawn multiple birds in one tick
+
+	var duck = Duck.instance()
+	if (randi() % duck.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked && (child.contents in ['pond', 'waterbucket', 'seedbucket']):
+				spawn_flying_bird(Duck, child)
+				return # Don't spawn multiple birds in one tick
+
 
 	var cassowary = Cassowary.instance()
 	if (randi() % cassowary.rarity == 0):

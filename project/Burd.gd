@@ -63,7 +63,7 @@ func tick_hanging_out():
 	if destination.fullness <= 0:
 		# No food left, hang around for a bit then leave
 		siesta -= 1
-	if age > lifetime || siesta <= 0:
+	if age >= lifetime || siesta <= 0:
 		if age >= lifetime:
 			extra_bird_money()
 		depart()
