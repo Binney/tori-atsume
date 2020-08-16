@@ -3,8 +3,11 @@ extends Node2D
 # NOTE: Birds will land on the feeder at (0,0), so make sure to
 # offset your sprite by the right amount that there's a perch there.
 
-var fullness = 0
+var fullness = 10
 var being_consumed = false
+
+# Birds can "lock" a birdfeeder so maximum 1 bird has this feeder as its target at a time
+var locked = false
 
 const CONSUMPTION_RATE = 0.5
 

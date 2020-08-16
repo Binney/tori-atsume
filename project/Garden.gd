@@ -22,20 +22,17 @@ func _left_garden():
 
 func new_game():
 	$BurdTimer.start()
-	spawn_robin()
 
 func _on_BurdTimer_timeout():
-	if (rand_range(0,1) > 0.95):
-		spawn_robin()
 	for child in get_children():
 		if (child is Burd):
 			child.tick()
 	for child in $BirdfeedersLayer.get_children():
 		if (child is Birdfeeder):
 			child.tick()
+	spawn_birds()
 
-func spawn_robin():
-	var burd = Robin.instance()
+func spawn_robin(burd, target_birdfeeder):
 	add_child(burd)
 
 	burd.position.x = 0
@@ -50,7 +47,8 @@ func spawn_robin():
 	curve.add_point(start)
 	curve.add_point(end)
 	burd.set_flightpath(curve)
-	burd.set_destination($BirdfeedersLayer/FeedBucket)
+	burd.set_destination(target_birdfeeder)
+	target_birdfeeder.locked = true
 	print("Set curve")
 	print(start)
 	print(" to ")
@@ -83,3 +81,23 @@ func fillNestBox():
 		managed_fill = true
 		nestbox._fill()
 	return managed_fill
+
+# ======================
+# BIRD SPAWNING HATCHERY
+# ======================
+#
+# Add new bird species here
+#
+# Add whatever spawn criteria you like, but consider at least
+# * Ensuring there is a free birdfeeder of this bird's preferred food type
+# * Add some randomness using bird.rarity
+
+func spawn_birds():
+
+	var robin = Robin.instance()
+	if (randi() % robin.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked:
+				spawn_robin(robin, child)
+
+	## TODO more birds here

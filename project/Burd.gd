@@ -1,11 +1,14 @@
 extends Area2D
 
-export var min_speed = 150  # Minimum speed range.
-export var max_speed = 250  # Maximum speed range.
-
+# How long will this bird stay here, as long as the birdfeeder has food?
 export var lifetime = 60
-export var point = 0
 
+# How long will this bird stay on the birdfeeder after it runs out of food?
+export var siesta = 10
+
+# How common is this bird?
+# 1 = it will always appear the moment it has food
+# 120 = it will on average appear once a minute if it has food (2 ticks per second)
 export var rarity = 1
 
 var flight_speed = 15
@@ -16,8 +19,6 @@ var destination
 
 func _ready():
 	pass
-
-
 
 func tweet():
 	# TODO actually make a noise
@@ -56,7 +57,10 @@ func tick_arrive():
 
 func tick_hanging_out():
 	age += 1
-	if age > lifetime:
+	if destination.fullness <= 0:
+		# No food left, hang around for a bit then leave
+		siesta -= 1
+	if age > lifetime || siesta <= 0:
 		depart()
 
 func tick_depart():
