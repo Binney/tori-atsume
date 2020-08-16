@@ -39,9 +39,7 @@ func spawn_robin(burd, target_birdfeeder):
 	burd.position.y = 0
 	burd.tweet()
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
-#	$BurdLandPath/BurdLandPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
-#	var end = $BurdLandPath/BurdLandPoint.position
 	var end = $BirdfeedersLayer/FeedBucket.position
 	var curve = Curve2D.new()
 	curve.add_point(start)
@@ -99,5 +97,6 @@ func spawn_birds():
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
 				spawn_robin(robin, child)
+
 
 	## TODO more birds here
