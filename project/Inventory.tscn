@@ -73,7 +73,7 @@ valign = 2
 
 [node name="Background" type="NinePatchRect" parent="HBoxContainer/Items/Money/MoneyBox"]
 margin_left = 22.0
-margin_right = 52.0
+margin_right = 65.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 30, 0 )
 size_flags_horizontal = 0
