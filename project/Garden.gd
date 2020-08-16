@@ -6,6 +6,10 @@ const Birdfeeder = preload("Birdfeeder.gd")
 const Burd = preload("Burd.gd")
 const Robin = preload("res://Robin.tscn")
 const Pigeon = preload("res://Pigeon.tscn")
+const Cassowary = preload("res://Cassowary.tscn")
+
+const LEFT_WALKING_SPAWN_POINT = Vector2(-200, 450)
+const RIGHT_WALKING_SPAWN_POINT = Vector2(1650, 450)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
@@ -41,6 +45,23 @@ func spawn_flying_bird(species, target_birdfeeder):
 
 	$SpawnBurdPath/SpawnBurdPoint.offset = randi()
 	var start = $SpawnBurdPath/SpawnBurdPoint.position
+	var end = target_birdfeeder.position
+	var curve = Curve2D.new()
+	curve.add_point(start)
+	curve.add_point(end)
+	burd.set_flightpath(curve)
+
+	burd.set_destination(target_birdfeeder)
+	target_birdfeeder.locked = true
+	add_child(burd)
+
+func spawn_walking_bird(species, target_birdfeeder):
+	var burd = species.instance()
+	burd.position.x = 0
+	burd.position.y = 0
+	burd.tweet()
+
+	var start = [LEFT_WALKING_SPAWN_POINT, RIGHT_WALKING_SPAWN_POINT][randi() % 2]
 	var end = target_birdfeeder.position
 	var curve = Curve2D.new()
 	curve.add_point(start)
@@ -105,6 +126,13 @@ func spawn_birds():
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked:
 				spawn_flying_bird(Pigeon, child)
+				return # Don't spawn multiple birds in one tick
+
+	var cassowary = Cassowary.instance()
+	if (randi() % cassowary.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked:
+				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
 
 	## TODO more birds here
