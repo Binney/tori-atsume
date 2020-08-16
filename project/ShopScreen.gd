@@ -29,11 +29,27 @@ func do_purchase():
 	InventoryManagement._add_to_inventory(current_item)
 
 func _on_Buy_button_up():
-	#BUY ITEMS
+	# Check if current_item is set to ""
+	# i.e. user has not selected anything
+	# warn them using popup.
 	if len(current_item) == 0:
 		$NullBuyCheck.popup_centered()
-	else:
+	if _check_money():
 		_maybe_purchase_limited()
+	else:
+		$NoFundsCheck.popup_centered()
+
+func _check_money():
+	# Function to check if user has 
+	# enough money (internal name: BirbBucks)
+	# to complete purchase
+	var item_to_buy = InventoryManagement.item_name_to_item[current_item].instance()
+	if InventoryManagement.money >= item_to_buy.get("item_cost"):
+		# lol infinite money if you forget the multiplication by -1
+		InventoryManagement._update_Money(item_to_buy.get("item_cost") * -1)
+		return true
+	else:
+		return false
 	
 func _on_Item1_button_up():
 	print("Selecting SeedBucket")
@@ -55,17 +71,13 @@ func _on_Item5_button_up():
 	print("Selecting NestBox")
 	current_item = "NestBox"
 
-
 func _on_Item6_pressed():
 	print("Selecting WaterBucket")
 	current_item = "WaterBucket"
 
-
 func _on_Item7_pressed():
 	print("Selecting IceBucket")
 	current_item = "IceBucket"
-
-
 
 func _on_Item8_pressed():
 	print("Selecting Tree")
