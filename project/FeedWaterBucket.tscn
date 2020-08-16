@@ -9,3 +9,15 @@ script = ExtResource( 1 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
+
+[node name="FootPositionLeft" parent="." index="1"]
+position = Vector2( -74.785, 46.8334 )
+
+[node name="PerchPositionLeft" parent="." index="2"]
+position = Vector2( -56.1764, -31.1281 )
+
+[node name="FootPositionRight" parent="." index="3"]
+position = Vector2( 60.5767, 46.6282 )
+
+[node name="PerchPositionRight" parent="." index="4"]
+position = Vector2( 51.5529, -30.8392 )
