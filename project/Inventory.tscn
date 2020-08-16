@@ -9,7 +9,7 @@ anchor_right = 0.882
 anchor_bottom = 0.205
 margin_left = 5.0
 margin_top = 5.0
-margin_right = -553.168
+margin_right = -322.168
 margin_bottom = -74.0
 script = ExtResource( 2 )
 __meta__ = {
@@ -17,60 +17,60 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 888.0
-margin_bottom = 72.0
+margin_right = 458.0
+margin_bottom = 44.0
+size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 200.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 200, 0 )
+[node name="Buttons" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = -7.62939e-06
+margin_right = 100.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 8
 
 [node name="ShopButton" type="Button" parent="HBoxContainer/Buttons"]
-margin_right = 200.0
-margin_bottom = 34.0
+margin_right = 68.0
+margin_bottom = 44.0
 theme = ExtResource( 1 )
 text = "Shop"
 
-[node name="GardenButton" type="Button" parent="HBoxContainer/Buttons"]
-visible = false
-margin_top = 38.0
-margin_right = 200.0
-margin_bottom = 72.0
-theme = ExtResource( 1 )
-text = "Back"
-
 [node name="Items" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 204.0
-margin_right = 576.0
-margin_bottom = 72.0
+margin_left = 104.0
+margin_right = 458.0
+margin_bottom = 44.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="Money" type="MarginContainer" parent="HBoxContainer/Items"]
-margin_right = 68.0
-margin_bottom = 72.0
+margin_right = 50.0
+margin_bottom = 44.0
+size_flags_horizontal = 12
+size_flags_vertical = 12
 
 [node name="MoneyBox" type="HBoxContainer" parent="HBoxContainer/Items/Money"]
-margin_right = 68.0
-margin_bottom = 72.0
+margin_right = 50.0
+margin_bottom = 44.0
 size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 1 )
 
 [node name="Labels" type="VBoxContainer" parent="HBoxContainer/Items/Money/MoneyBox"]
-margin_right = 34.0
-margin_bottom = 72.0
-
-[node name="Title" type="Label" parent="HBoxContainer/Items/Money/MoneyBox/Labels"]
-margin_right = 34.0
-margin_bottom = 34.0
+margin_right = 16.0
+margin_bottom = 44.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+custom_constants/separation = -24
+
+[node name="Title" type="Label" parent="HBoxContainer/Items/Money/MoneyBox/Labels"]
+margin_bottom = 34.0
+size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.964706, 0.929412, 0.929412, 1 )
-text = "GP"
 
 [node name="Counter" type="Label" parent="HBoxContainer/Items/Money/MoneyBox/Labels"]
-margin_top = 38.0
+margin_top = 10.0
 margin_right = 16.0
-margin_bottom = 72.0
+margin_bottom = 44.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.964706, 0.929412, 0.929412, 1 )
@@ -78,17 +78,17 @@ text = "0"
 valign = 2
 
 [node name="Background" type="NinePatchRect" parent="HBoxContainer/Items/Money/MoneyBox"]
-margin_left = 38.0
-margin_right = 68.0
-margin_bottom = 72.0
+margin_left = 20.0
+margin_right = 50.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 30, 0 )
 size_flags_horizontal = 0
 texture = ExtResource( 3 )
 
 [node name="ItemBox" type="HBoxContainer" parent="HBoxContainer/Items"]
-margin_left = 72.0
-margin_right = 372.0
-margin_bottom = 72.0
+margin_left = 54.0
+margin_right = 354.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 2
 custom_constants/separation = 5
@@ -105,7 +105,5 @@ theme = ExtResource( 1 )
 text = "Birdwatching Journal"
 [connection signal="button_up" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_button_up"]
 [connection signal="pressed" from="HBoxContainer/Buttons/ShopButton" to="." method="_on_ShopButton_pressed"]
-[connection signal="button_up" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_button_up"]
-[connection signal="pressed" from="HBoxContainer/Buttons/GardenButton" to="." method="_on_GardenButton_pressed"]
 [connection signal="draw" from="HBoxContainer/Items/Money/MoneyBox/Labels/Counter" to="." method="_on_Counter_draw"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/JournalButton" to="." method="_on_Button_pressed"]

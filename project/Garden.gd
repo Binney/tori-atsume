@@ -8,6 +8,7 @@ const Pigeon = preload("res://Pigeon.tscn")
 const Duck = preload("res://Duck.tscn")
 const Cassowary = preload("res://Cassowary.tscn")
 const Penguin = preload("res://Penguin.tscn")
+const Skink = preload("res://Skink.tscn")
 
 const LEFT_WALKING_SPAWN_POINT = Vector2(-200, 450)
 const RIGHT_WALKING_SPAWN_POINT = Vector2(1650, 450)
@@ -154,7 +155,12 @@ func spawn_birds():
 				Journal.discover("Cassowary")
 				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
-
+	var skink = Skink.instance()
+	if (randi() % skink.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked && child.contents in ['fruitbucket', 'meatbucket']:
+				spawn_walking_bird(Skink, child)
+				return # Don't spawn multiple birds in one tick
 	var penguin = Penguin.instance()
 	if (randi() % penguin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
@@ -162,5 +168,7 @@ func spawn_birds():
 				Journal.discover("Penguin")
 				spawn_walking_bird(Penguin, child)
 				return # Don't spawn multiple birds in one tick
+				
+
 
 	## TODO more birds here

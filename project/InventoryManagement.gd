@@ -82,12 +82,16 @@ func _remove_from_inventory(item_name):
 			break
 		
 func _on_ShopButton_button_up():
-	#money += 50 
-	ShopScreen.show()
-	Garden._left_garden()
-	Journal.hide()
-	$HBoxContainer/Buttons/GardenButton.show()
-	$HBoxContainer/Buttons/ShopButton.hide()
+	if Garden.in_garden:
+		Journal.hide()
+		ShopScreen.show()
+		Garden._left_garden()
+		$HBoxContainer/Buttons/ShopButton.text = "Back"
+	else:
+		Journal.hide()
+		Garden._in_garden()
+		ShopScreen.hide()
+		$HBoxContainer/Buttons/ShopButton.text = "Shop"
 	#_add_to_inventory("GenericItem")
 	#get_node("GardenButton").text = "Back to garden view"
 	#_update_Money(50)
