@@ -37,13 +37,6 @@ onready var item_name_to_item = {"GenericItem": Item,
 func _ready():
 	money = START_MONEY
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-
 	
 func _update_Money(val):
 	# val is positive or negative int to update money with
@@ -74,8 +67,8 @@ func _remove_from_inventory(item_name):
 			else:
 				Inventory.get_node("HBoxContainer/Items/ItemBox").remove_child(i)
 			break
-		
-func _on_ShopButton_button_up():
+
+func _on_ShopButton_pressed():
 	if Garden.in_garden:
 		Journal.hide()
 		ShopScreen.show()
@@ -93,8 +86,8 @@ func _on_Counter_ready():
 func _on_Counter_draw():
 	$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)
 
-
-func _on_Button_pressed():
+func _on_JournalButton_pressed():
+	print("Displaying journal")
 	Garden._left_garden()
 	Journal.display()
 	ShopScreen.hide()

@@ -12,4 +12,4 @@ texture = ExtResource( 2 )
 text = "Cassowary"
 
 [node name="Label2" parent="." index="3"]
-text = "The murderbird, the doom of Garden, Twitcher's Fate. The cassowary goes by many names. Those confronted by its terrible visage call it only, \"AIEEEEEEEEEEEEIEAAAARGH\"."
+text = "The murderbird, the doom of the Garden, Twitcher's Fate. The cassowary goes by many names. Those confronted by its terrible visage call it only, \"AIEEEEEEEEEEEEIEAAAARGH\"."

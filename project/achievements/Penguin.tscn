@@ -9,13 +9,7 @@
 texture = ExtResource( 2 )
 
 [node name="Label" parent="." index="2"]
-margin_top = 166.036
-margin_bottom = 200.036
 text = "Penguin"
 
 [node name="Label2" parent="." index="3"]
-margin_left = -0.0259569
-margin_top = 200.092
-margin_right = 190.974
-margin_bottom = 2897.09
 text = "A frequent visitor to gardens worldwide, the penguin is stately whether prowling the garden or wolfing fish directly down its gullet."

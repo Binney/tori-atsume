@@ -4,34 +4,14 @@
 [ext_resource path="res://burdart/pigeonpic.png" type="Texture" id=2]
 
 [node name="Control" instance=ExtResource( 1 )]
-margin_left = -0.299789
-margin_top = 0.299789
-margin_right = -824.3
-margin_bottom = -299.7
 
 [node name="TextureRect" parent="." index="0"]
-margin_left = 47.657
-margin_top = -3.43616
-margin_right = 80.657
-margin_bottom = 29.5638
 
 [node name="TextureRect2" parent="." index="1"]
-margin_left = 65.2469
-margin_top = 15.2466
-margin_right = 185.247
-margin_bottom = 135.247
 texture = ExtResource( 2 )
 
 [node name="Label" parent="." index="2"]
-margin_left = -7.3174
-margin_top = 155.642
-margin_right = 243.683
-margin_bottom = 189.642
 text = "Pigeon"
 
 [node name="Label2" parent="." index="3"]
-margin_left = 6.71285
-margin_top = 189.053
-margin_right = 197.713
-margin_bottom = 282.053
 text = "The love-bird of the urban jungle, this sexy beast likes to eat whatever it can get its filthy beak into."

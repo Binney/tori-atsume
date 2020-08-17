@@ -19,21 +19,15 @@ func discover(bird):
 		achievements[bird] = true
 
 func display():
-	# look it's 22:24 deal with it
-	if !achievements.Robin:
-		$ScrollContainer/GridContainer/Robin.hide()
-	if !achievements.Pigeon:
-		$ScrollContainer/GridContainer/Pigeon.hide()
-	if !achievements.Duck:
-		$ScrollContainer/GridContainer/Duck.hide()
-	if !achievements.Cassowary:
-		$ScrollContainer/GridContainer/Cassowary.hide()
-	if !achievements.Penguin:
-		$ScrollContainer/GridContainer/Penguin.hide()
-	if !achievements.Parrot:
-		$ScrollContainer/GridContainer/Parrot.hide()
-	if !achievements.Hawk:
-		$ScrollContainer/GridContainer/Hawk.hide()
+	# you tell me a better way to do this
+	$ScrollContainer/GridContainer/Robin.visible = achievements.Robin
+	$ScrollContainer/GridContainer/Pigeon.visible = achievements.Pigeon
+	$ScrollContainer/GridContainer/Duck.visible = achievements.Duck
+	$ScrollContainer/GridContainer/Cassowary.visible = achievements.Cassowary
+	$ScrollContainer/GridContainer/Penguin.visible = achievements.Penguin
+	$ScrollContainer/GridContainer/Parrot.visible = achievements.Parrot
+	$ScrollContainer/GridContainer/Hawk.visible = achievements.Hawk
+
 	if count_achievements() == 0:
 		$EmptyLabel.show()
 	show()

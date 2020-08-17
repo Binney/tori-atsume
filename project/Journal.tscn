@@ -48,67 +48,23 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
-margin_right = 788.0
-margin_bottom = 808.0
+margin_right = 658.0
+margin_bottom = 1058.0
 columns = 3
 
 [node name="Robin" parent="ScrollContainer/GridContainer" instance=ExtResource( 5 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 260.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 260, 200 )
 
 [node name="Pigeon" parent="ScrollContainer/GridContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 264.0
-margin_top = 0.0
-margin_right = 524.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 260, 200 )
-size_flags_horizontal = 3
 
 [node name="Duck" parent="ScrollContainer/GridContainer" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 528.0
-margin_right = 788.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 260, 200 )
 
 [node name="Hawk" parent="ScrollContainer/GridContainer" instance=ExtResource( 9 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 204.0
-margin_right = 260.0
-margin_bottom = 504.0
 
 [node name="Penguin" parent="ScrollContainer/GridContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 264.0
-margin_top = 204.0
-margin_right = 524.0
-margin_bottom = 504.0
-rect_min_size = Vector2( 260, 200 )
-size_flags_horizontal = 3
 
 [node name="Cassowary" parent="ScrollContainer/GridContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 528.0
-margin_top = 204.0
-margin_right = 788.0
-margin_bottom = 504.0
-rect_min_size = Vector2( 260, 200 )
 
 [node name="Parrot" parent="ScrollContainer/GridContainer" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 508.0
-margin_right = 260.0
-margin_bottom = 808.0
 
 [node name="CloseButton" type="Button" parent="."]
 margin_left = 922.592

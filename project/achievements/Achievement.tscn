@@ -12,18 +12,18 @@ font_data = ExtResource( 4 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -783.0
-margin_bottom = -300.0
-rect_min_size = Vector2( 200, 300 )
+margin_right = -774.0
+margin_bottom = -250.0
+rect_min_size = Vector2( 250, 350 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 45.5062
-margin_top = -0.628806
-margin_right = 78.5062
-margin_bottom = 32.3712
+margin_left = 44.0
+margin_top = -0.629
+margin_right = 77.0
+margin_bottom = 32.371
 rect_scale = Vector2( 4.9, 4.9 )
 texture = ExtResource( 1 )
 __meta__ = {
@@ -31,17 +31,19 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-margin_left = 64.8069
-margin_top = 15.9459
-margin_right = 184.807
-margin_bottom = 135.946
+margin_left = 63.3298
+margin_top = 18.1946
+margin_right = 183.33
+margin_bottom = 138.195
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = -4.6665
-margin_top = 166.368
-margin_right = 246.334
-margin_bottom = 200.368
+margin_top = 165.0
+margin_right = 251.0
+margin_bottom = 199.0
 theme = ExtResource( 3 )
 text = "Achievement name"
 align = 1
@@ -50,10 +52,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 1.68326
-margin_top = 201.118
-margin_right = 192.683
-margin_bottom = 294.118
+margin_left = 25.0
+margin_top = 200.0
+margin_right = 225.0
+margin_bottom = 310.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 custom_constants/shadow_offset_x = 0
