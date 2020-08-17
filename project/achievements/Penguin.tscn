@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://achievements/Achievement.tscn" type="PackedScene" id=1]
+[ext_resource path="res://burdart/penguinpic.png" type="Texture" id=2]
+
+[node name="Control" instance=ExtResource( 1 )]
+
+[node name="TextureRect2" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="Label" parent="." index="2"]
+margin_top = 166.036
+margin_bottom = 200.036
+text = "Penguin"
+
+[node name="Label2" parent="." index="3"]
+margin_left = -0.0259569
+margin_top = 200.092
+margin_right = 190.974
+margin_bottom = 2897.09
+text = "A frequent visitor to gardens worldwide, the penguin is stately whether prowling the garden or wolfing fish directly down its gullet."

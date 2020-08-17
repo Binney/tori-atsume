@@ -9,6 +9,7 @@ const Duck = preload("res://Duck.tscn")
 const Cassowary = preload("res://Cassowary.tscn")
 const Penguin = preload("res://Penguin.tscn")
 const Skink = preload("res://Skink.tscn")
+const Hawk = preload("res://Hawk.tscn")
 
 const LEFT_WALKING_SPAWN_POINT = Vector2(-200, 450)
 const RIGHT_WALKING_SPAWN_POINT = Vector2(1650, 450)
@@ -30,7 +31,7 @@ func fade_out_music():
 	$AudioStreamPlayer/Tween.interpolate_property($AudioStreamPlayer, "volume_db", 0, -80, 3, 1, Tween.EASE_IN, 0)
 	$AudioStreamPlayer/Tween.start()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	# Finished fading out the audio
 	$AudioStreamPlayer.stop()
 
@@ -52,7 +53,6 @@ func _on_BurdTimer_timeout():
 	spawn_birds()
 
 func spawn_flying_bird(species, target_birdfeeder):
-	print("Spawning " + species.to_string())
 	var burd = species.instance()
 	burd.position.x = 0
 	burd.position.y = 0
@@ -100,7 +100,7 @@ func fillGardenSpace(food_name):
 	var managed_fill = false
 	var buckets = Garden.get_node("BirdfeedersLayer").get_children()
 	for b in buckets:
-		if food_name in b.fillable and b.fullness == 0:
+		if b.locked == false and food_name in b.fillable and b.fullness == 0:
 			managed_fill = true
 			b.fill(food_name)
 			break
@@ -127,44 +127,59 @@ func spawn_birds():
 		for child in $BirdfeedersLayer.get_children():
 			print(child.contents)
 			if child.fullness > 0 && !child.locked && child.contents == 'seedbucket':
+				Journal.discover("Robin")
 				spawn_flying_bird(Robin, child)
 				return # Don't spawn multiple birds in one tick
 
-	var pigeon = Pigeon.instance()
-#	# TODO add in rules about how more pigeons arrive the more pigeons are already here
-	if (randi() % pigeon.rarity == 0):
+	var hawk = Hawk.instance()
+	if (randi() % hawk.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
-			if child.fullness > 0 && !child.locked:
-				spawn_flying_bird(Pigeon, child)
+			if child.fullness > 0 && !child.locked && child.contents in ['meatbucket']:
+				Journal.discover("Hawk")
+				spawn_flying_bird(Hawk, child)
 				return # Don't spawn multiple birds in one tick
 
 	var duck = Duck.instance()
 	if (randi() % duck.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked &&  child.contents in ["pond", "waterbucket", "seedbucket"]:
+				Journal.discover("Duck")
 				spawn_flying_bird(Duck, child)
 				return # Don't spawn multiple birds in one tick
-
 
 	var cassowary = Cassowary.instance()
 	if (randi() % cassowary.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['fruitbucket', 'fruittree']:
+				Journal.discover("Cassowary")
 				spawn_walking_bird(Cassowary, child)
 				return # Don't spawn multiple birds in one tick
+
 	var skink = Skink.instance()
 	if (randi() % skink.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['fruitbucket', 'meatbucket']:
+				Journal.discover("Parrot")
 				spawn_walking_bird(Skink, child)
 				return # Don't spawn multiple birds in one tick
+
 	var penguin = Penguin.instance()
 	if (randi() % penguin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
 			if child.fullness > 0 && !child.locked && child.contents in ['icebucket', 'meatbucket']:
+				Journal.discover("Penguin")
 				spawn_walking_bird(Penguin, child)
 				return # Don't spawn multiple birds in one tick
-				
+
+	# Chuck Pigeon at the bottom, because Pigeon is an unfussy eater and will nick other birbs' food given the chance
+	var pigeon = Pigeon.instance()
+#	# TODO add in rules about how more pigeons arrive the more pigeons are already here
+	if (randi() % pigeon.rarity == 0):
+		for child in $BirdfeedersLayer.get_children():
+			if child.fullness > 0 && !child.locked:
+				Journal.discover("Pigeon")
+				spawn_flying_bird(Pigeon, child)
+				return # Don't spawn multiple birds in one tick
 
 
 	## TODO more birds here

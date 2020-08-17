@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://burdart/default-birb-2.png" type="Texture" id=1]
+[ext_resource path="res://burdart/default-birb.png" type="Texture" id=2]
+[ext_resource path="res://Burd.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.693
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.00601196, -0.0200348, 0, 0, 0, 0, 621.943, 25.3152 )
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flap",
+"speed": 5.0
+} ]
+
+[node name="Burd" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="BurdPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="BurdPathFollow" type="PathFollow2D" parent="BurdPath"]
+position = Vector2( 0.00601196, -0.0200348 )
+rotation = 0.0407136
+rotate = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BurdPath/BurdPathFollow"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "flap"
+frame = 1
+playing = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="BurdPath/BurdPathFollow"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[connection signal="viewport_entered" from="BurdPath/BurdPathFollow/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_entered"]
+[connection signal="viewport_exited" from="BurdPath/BurdPathFollow/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
