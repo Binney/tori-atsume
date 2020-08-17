@@ -87,7 +87,6 @@ func _on_Counter_draw():
 	$HBoxContainer/Items/Money/MoneyBox/Labels/Counter.text = str(money)
 
 func _on_JournalButton_pressed():
-	print("Displaying journal")
 	Garden._left_garden()
 	Journal.display()
 	ShopScreen.hide()

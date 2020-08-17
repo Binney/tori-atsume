@@ -24,16 +24,13 @@ func _ready():
 	pass
 
 func tweet():
-	$AudioStreamPlayer.play()
 	print("TWIET")
+	$AudioStreamPlayer.play()
 
 func set_flightpath(path):
 	$BurdPath.set_curve(path)
-	print($BurdPath/BurdPathFollow.position)
 
 func set_destination(node):
-	print("Set destination to")
-	print(node)
 	destination = node
 
 func tick():
@@ -70,7 +67,6 @@ func tick_hanging_out():
 
 func tick_depart():
 	if $BurdPath/BurdPathFollow.offset - flight_speed < 0:
-		print("got to end")
 		queue_free()
 		return
 

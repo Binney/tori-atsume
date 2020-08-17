@@ -48,23 +48,59 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
-margin_right = 658.0
+margin_right = 758.0
 margin_bottom = 1058.0
 columns = 3
 
 [node name="Robin" parent="ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 250.0
+margin_bottom = 350.0
 
 [node name="Pigeon" parent="ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 350.0
 
 [node name="Duck" parent="ScrollContainer/GridContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 508.0
+margin_right = 758.0
+margin_bottom = 350.0
 
 [node name="Hawk" parent="ScrollContainer/GridContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 354.0
+margin_right = 250.0
+margin_bottom = 704.0
 
 [node name="Penguin" parent="ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 254.0
+margin_top = 354.0
+margin_right = 504.0
+margin_bottom = 704.0
 
 [node name="Cassowary" parent="ScrollContainer/GridContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 508.0
+margin_top = 354.0
+margin_right = 758.0
+margin_bottom = 704.0
 
 [node name="Parrot" parent="ScrollContainer/GridContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 708.0
+margin_right = 250.0
+margin_bottom = 1058.0
 
 [node name="CloseButton" type="Button" parent="."]
 margin_left = 922.592

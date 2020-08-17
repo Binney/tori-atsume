@@ -125,7 +125,6 @@ func spawn_birds():
 	var robin = Robin.instance()
 	if (randi() % robin.rarity == 0):
 		for child in $BirdfeedersLayer.get_children():
-			print(child.contents)
 			if child.fullness > 0 && !child.locked && child.contents == 'seedbucket':
 				Journal.discover("Robin")
 				spawn_flying_bird(Robin, child)

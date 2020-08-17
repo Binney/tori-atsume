@@ -1,32 +1,32 @@
 extends Control
 
 
-var achievements = {
-	"Robin": false,
-	"Pigeon": false,
-	"Duck": false,
-	"Cassowary": false,
-	"Penguin": false,
-	"Parrot": false,
-	"Hawk": false
+var sightings = {
+	"Robin": 0,
+	"Pigeon": 0,
+	"Duck": 0,
+	"Cassowary": 0,
+	"Penguin": 0,
+	"Parrot": 0,
+	"Hawk": 0
 }
 
 func _ready():
 	hide()
 
 func discover(bird):
-	if achievements.has(bird):
-		achievements[bird] = true
+	if sightings.has(bird):
+		sightings[bird] += 1
 
 func display():
 	# you tell me a better way to do this
-	$ScrollContainer/GridContainer/Robin.visible = achievements.Robin
-	$ScrollContainer/GridContainer/Pigeon.visible = achievements.Pigeon
-	$ScrollContainer/GridContainer/Duck.visible = achievements.Duck
-	$ScrollContainer/GridContainer/Cassowary.visible = achievements.Cassowary
-	$ScrollContainer/GridContainer/Penguin.visible = achievements.Penguin
-	$ScrollContainer/GridContainer/Parrot.visible = achievements.Parrot
-	$ScrollContainer/GridContainer/Hawk.visible = achievements.Hawk
+	$ScrollContainer/GridContainer/Robin.visible = sightings.Robin > 0
+	$ScrollContainer/GridContainer/Pigeon.visible = sightings.Pigeon > 0
+	$ScrollContainer/GridContainer/Duck.visible = sightings.Duck > 0
+	$ScrollContainer/GridContainer/Cassowary.visible = sightings.Cassowary > 0
+	$ScrollContainer/GridContainer/Penguin.visible = sightings.Penguin > 0
+	$ScrollContainer/GridContainer/Parrot.visible = sightings.Parrot > 0
+	$ScrollContainer/GridContainer/Hawk.visible = sightings.Hawk > 0
 
 	if count_achievements() == 0:
 		$EmptyLabel.show()
@@ -34,9 +34,15 @@ func display():
 
 func count_achievements():
 	var result = 0
-	for key in achievements:
-		if achievements[key]:
+	for key in sightings:
+		if sightings[key] > 0:
 			result += 1
+	return result
+
+func get_total_birds_spotted():
+	var result = 0
+	for key in sightings:
+		result += sightings[key]
 	return result
 
 func _on_Button_pressed():
