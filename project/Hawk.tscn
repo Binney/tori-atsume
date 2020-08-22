@@ -22,6 +22,8 @@ animations = [ {
 [node name="Burd" instance=ExtResource( 1 )]
 rarity = 80
 flight_speed = 25
+base_money_min = 3
+base_money_max = 5
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( 1.71449, -18.0285 )

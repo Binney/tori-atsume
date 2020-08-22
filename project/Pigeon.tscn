@@ -6,6 +6,8 @@
 
 [node name="Burd" instance=ExtResource( 1 )]
 rarity = 40
+base_money_min = 0
+base_money_max = 2
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 frames = ExtResource( 2 )

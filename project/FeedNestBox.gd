@@ -4,7 +4,7 @@ var empty = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	MAX_CAPACITY = 50
+	MAX_CAPACITY = 100
 	fullness = MAX_CAPACITY
 	fillable = ["nestbox"]
 	

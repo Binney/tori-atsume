@@ -7,6 +7,7 @@
 [node name="Burd" instance=ExtResource( 1 )]
 rarity = 50
 flight_speed = 30
+base_money_max = 2
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( 0, -0.28479 )

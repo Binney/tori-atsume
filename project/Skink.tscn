@@ -6,9 +6,12 @@
 
 [node name="Burd" instance=ExtResource( 1 )]
 rarity = 60
+base_money_min = 3
+base_money_max = 7
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 frames = ExtResource( 2 )
+frame = 0
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 3 )
