@@ -8,21 +8,21 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "flap",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "perch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "flap",
 "speed": 5.0
 } ]
 
 [node name="Burd" instance=ExtResource( 1 )]
 rarity = 80
+flight_speed = 25
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( 1.71449, -18.0285 )
 frames = SubResource( 1 )
-frame = 0

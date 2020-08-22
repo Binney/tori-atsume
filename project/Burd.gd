@@ -13,14 +13,21 @@ export var rarity = 1
 
 export var flight_speed = 15
 
+# Dropped when tbe bird arrives
+export var base_money_min = 1
+export var base_money_max = 3
+
 var age = 0
 var arriving = true
 var departing = false
 var destination
 
+var rng = RandomNumberGenerator.new()
+
 const PIXEL_SCALE_FACTOR = 2
 
 func _ready():
+	rng.randomize()
 	pass
 
 func tweet():
@@ -62,7 +69,7 @@ func tick_hanging_out():
 		siesta -= 1
 	if age >= lifetime || siesta <= 0:
 		if age >= lifetime:
-			extra_bird_money()
+			drop_bonus_money()
 		depart()
 
 func tick_depart():
@@ -85,6 +92,7 @@ func _on_VisibilityNotifier2D_viewport_entered(_viewport):
 func arrive():
 	print("Arrived!")
 	arriving = false
+	drop_base_money()
 	if destination.has_method('set_being_consumed'):
 		destination.set_being_consumed(true)
 	if destination.floatable && $BurdPath/BurdPathFollow/AnimatedSprite.frames.has_animation("float"):
@@ -97,23 +105,20 @@ func depart():
 	if destination.has_method('free_feeder'):
 		destination.free_feeder()
 	departing = true
-	base_bird_money()
 	$BurdPath/BurdPathFollow/AnimatedSprite.play("flap")
-	
-func base_bird_money():
-	# Pick a random integer between 0 and 1
+
+func drop_base_money():
+	# Pick a random integer between base_money_min and base_money_max
 	# This will be the number of coins the user
-	# gets from any one bird
-	var base_money
-	base_money = randi()%2 
+	# receives when a bird arrives
+	var base_money = rng.randi_range(base_money_min, base_money_max)
 	InventoryManagement._update_Money(base_money)
 
-func extra_bird_money():
+func drop_bonus_money():
 	# Pick a random integer between 1 and 3
 	# This will be the number of coins the user
 	# gets if a bird has their fill
-	var extra_money
-	extra_money = randi()%3 + 1 
+	var extra_money = rng.randi_range(1, 3)
 	InventoryManagement._update_Money(extra_money)
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
