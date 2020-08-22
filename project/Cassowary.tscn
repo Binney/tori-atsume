@@ -5,7 +5,7 @@
 [ext_resource path="res://music/Cassowary.wav" type="AudioStream" id=3]
 
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 40
+rarity = 100
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( -2.38249, -156.188 )

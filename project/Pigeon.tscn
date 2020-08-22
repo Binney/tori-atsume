@@ -5,7 +5,7 @@
 [ext_resource path="res://music/Pigeon.wav" type="AudioStream" id=3]
 
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 20
+rarity = 40
 flight_speed = 25
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]

@@ -5,13 +5,12 @@
 [ext_resource path="res://music/Robin.wav" type="AudioStream" id=3]
 
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 25
+rarity = 50
 flight_speed = 30
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( 0, -0.28479 )
 frames = ExtResource( 2 )
-frame = 0
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 3 )

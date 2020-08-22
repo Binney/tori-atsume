@@ -5,11 +5,11 @@
 [ext_resource path="res://music/Penguin.wav" type="AudioStream" id=3]
 
 [node name="Burd" instance=ExtResource( 1 )]
+rarity = 70
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 position = Vector2( -9.72129, -54.5095 )
 frames = ExtResource( 2 )
-frame = 0
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 3 )

@@ -4,13 +4,11 @@
 [ext_resource path="res://Duck_Sprites.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://music/Duck.wav" type="AudioStream" id=3]
 
-
 [node name="Burd" instance=ExtResource( 1 )]
-rarity = 20
+rarity = 40
 
 [node name="AnimatedSprite" parent="BurdPath/BurdPathFollow" index="0"]
 frames = ExtResource( 2 )
-frame = 0
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 3 )
