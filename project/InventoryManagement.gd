@@ -7,7 +7,7 @@ extends MarginContainer
 
 
 onready var money = null
-const START_MONEY = 10 
+const START_MONEY = 5
 const ITEM_WIDTH = 30
 const ITEM_HEIGHT = 44
 
